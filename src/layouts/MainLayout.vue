@@ -20,14 +20,35 @@
           />
         </q-toolbar-title>
 
-        <q-btn
+        <q-btn-dropdown
           flat
           dense
           round
           icon="account_circle"
           aria-label="Menu"
+          label="marcel"
           @click="toggleAccount"
-        />
+        >
+          <q-list>
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Profile</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Settings</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-separator />
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Log Out</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
       </q-toolbar>
     </q-header>
 
