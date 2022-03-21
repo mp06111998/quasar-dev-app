@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <q-card class="my-card q-mx-md q-my-md">
-      <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+      <q-img style="height: 220px" src="~assets/small.jpg" />
 
       <q-card-section>
         <q-btn
@@ -57,12 +57,12 @@
       <q-separator />
 
       <q-card-actions>
-        <q-btn flat color="primary"> Invest </q-btn>
+        <q-btn color="primary"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
     <q-card class="my-card q-mx-md q-my-md">
-      <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+      <q-img style="height: 220px" src="~assets/medium.jpg" />
 
       <q-card-section>
         <q-btn
@@ -100,21 +100,30 @@
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <div class="text-subtitle1">$・Italian, Cafe</div>
+        <div class="text-subtitle1">
+          Gain projections:
+          <span class="q-px-sm" style="background-color: black; color: white"
+            >€ {{ priceModel2 * 1.2 }}</span
+          >
+        </div>
         <div class="text-caption text-grey">
-          Small plates, salads & sandwiches in an intimate setting.
+          All investment plans lock your investment for 120 days.
+          <br />
+          After 120 days you get profit of 20%. Everything else
+          <br />
+          is on Juicy Gain.
         </div>
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions>
-        <q-btn flat color="primary"> Invest </q-btn>
+        <q-btn color="primary"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
     <q-card class="my-card q-mx-md q-my-md">
-      <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+      <q-img style="height: 220px" src="~assets/large.jpg" />
 
       <q-card-section>
         <q-btn
@@ -152,16 +161,25 @@
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <div class="text-subtitle1">$・Italian, Cafe</div>
+        <div class="text-subtitle1">
+          Gain projections:
+          <span class="q-px-sm" style="background-color: black; color: white"
+            >€ {{ priceModel3 * 1.2 }}</span
+          >
+        </div>
         <div class="text-caption text-grey">
-          Small plates, salads & sandwiches in an intimate setting.
+          All investment plans lock your investment for 120 days.
+          <br />
+          After 120 days you get profit of 20%. Everything else
+          <br />
+          is on Juicy Gain.
         </div>
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions>
-        <q-btn flat color="primary"> Invest </q-btn>
+        <q-btn color="primary"> Invest </q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
