@@ -56,8 +56,8 @@
 
       <q-separator />
 
-      <q-card-actions>
-        <q-btn color="primary"> Invest </q-btn>
+      <q-card-actions align="center">
+        <q-btn color="primary" @click="openInvest = true"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
@@ -117,7 +117,7 @@
 
       <q-separator />
 
-      <q-card-actions>
+      <q-card-actions align="center">
         <q-btn color="primary"> Invest </q-btn>
       </q-card-actions>
     </q-card>
@@ -178,15 +178,58 @@
 
       <q-separator />
 
-      <q-card-actions>
+      <q-card-actions align="center">
         <q-btn color="primary"> Invest </q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
+
+  <q-dialog
+    v-model="openInvest"
+    transition-show="rotate"
+    transition-hide="rotate"
+    persistent
+  >
+    <q-card>
+      <q-card-section>
+        <div class="text-h6">Investment plan</div>
+      </q-card-section>
+
+      <q-card-section class="q-pt-none">
+        <p>
+          Investment of
+          <span class="q-px-sm" style="background-color: black; color: white"
+            >€ {{ priceModel1 }}</span
+          >
+          with gain projections
+          <span class="q-px-sm" style="background-color: black; color: white"
+            >€ {{ priceModel1 * 1.2 }}</span
+          >.
+        </p>
+        <div class="text-caption text-grey">
+          After you confirm your investment plan, your investment will apear
+          <br />
+          under "My investments" in menu. There you can pay or cancel it.
+        </div>
+      </q-card-section>
+      <q-separator />
+      <q-card-actions align="right">
+        <q-btn flat label="Cancel" color="primary" v-close-popup />
+        <q-btn
+          label="Confirm"
+          color="primary"
+          v-close-popup
+          @click="triggerPositive"
+          href="/#/my_investments"
+        />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
 import { defineComponent, ref, computed } from "vue";
+import { useQuasar } from "quasar";
 
 export default defineComponent({
   name: "PageIndex",
@@ -196,13 +239,24 @@ export default defineComponent({
     const priceModel2 = ref(1050);
     const priceModel3 = ref(10050);
 
+    const $q = useQuasar();
+
     return {
       priceModel1,
       priceModel2,
       priceModel3,
+      openInvest: ref(false),
+
       smallValue: computed(() => `€ ${priceModel1.value}`),
       mediumValue: computed(() => `€ ${priceModel2.value}`),
       largeValue: computed(() => `€ ${priceModel3.value}`),
+
+      triggerPositive() {
+        $q.notify({
+          type: "positive",
+          message: "You successfully confirmed payment.",
+        });
+      },
     };
   },
 });
