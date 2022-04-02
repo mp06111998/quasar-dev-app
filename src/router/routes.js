@@ -15,6 +15,18 @@ const routes = [
         path: "/my_investments",
         component: () => import("pages/MyInvestments.vue"),
       },
+      {
+        path: "/calendar",
+        component: () => import("pages/Calendar.vue"),
+      },
+      {
+        path: "/greenpaper",
+        component: () => import("pages/Greenpaper.vue"),
+      },
+      {
+        path: "/support",
+        component: () => import("pages/Support.vue"),
+      },
     ],
   },
 

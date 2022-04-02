@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center" style="background-color: lightgrey">
     <q-card class="my-card q-mx-md q-my-md">
       <q-img style="height: 220px" src="~assets/small.jpg" />
 
@@ -254,7 +254,7 @@ export default defineComponent({
       triggerPositive() {
         $q.notify({
           type: "positive",
-          message: "You successfully confirmed payment.",
+          message: "Successfully confirmed investment plan.",
         });
       },
     };

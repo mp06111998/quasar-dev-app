@@ -91,17 +91,17 @@ const linksList = [
   {
     title: "Calendar",
     icon: "calendar_month",
-    link: "https://chat.quasar.dev",
+    to: "/calendar",
   },
   {
     title: "Greenpaper",
     icon: "description",
-    link: "https://chat.quasar.dev",
+    to: "/greenpaper",
   },
   {
     title: "Support",
     icon: "support_agent",
-    link: "https://forum.quasar.dev",
+    to: "/support",
   },
 ];
 
