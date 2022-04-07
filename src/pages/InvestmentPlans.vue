@@ -23,13 +23,13 @@
         </div>
 
         <q-slider
-          v-model="priceModel1"
+          v-model="smallValue"
           class="q-mt-xl"
           color="black"
           :inner-min="50"
           :inner-max="1000"
           :label-value="smallValue"
-          step="50"
+          :step="50"
           markers
           label
           label-always
@@ -42,7 +42,7 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ priceModel1 * 1.2 }}</span
+            >€ {{ smallValue * 1.2 }}</span
           >
         </div>
         <div class="text-caption text-grey">
@@ -57,7 +57,7 @@
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary" @click="openInvest = true"> Invest </q-btn>
+        <q-btn color="primary" @click="click(smallValue)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
@@ -84,13 +84,13 @@
         </div>
 
         <q-slider
-          v-model="priceModel2"
+          v-model="mediumValue"
           class="q-mt-xl"
           color="black"
           :inner-min="1050"
           :inner-max="10000"
           :label-value="mediumValue"
-          step="50"
+          :step="50"
           markers
           label
           label-always
@@ -103,7 +103,7 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ priceModel2 * 1.2 }}</span
+            >€ {{ mediumValue * 1.2 }}</span
           >
         </div>
         <div class="text-caption text-grey">
@@ -118,7 +118,7 @@
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary"> Invest </q-btn>
+        <q-btn color="primary" @click="click(mediumValue)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
@@ -145,13 +145,13 @@
         </div>
 
         <q-slider
-          v-model="priceModel3"
+          v-model="largeValue"
           class="q-mt-xl"
           color="black"
           :inner-min="10050"
           :inner-max="20000"
           :label-value="largeValue"
-          step="50"
+          :step="50"
           markers
           label
           label-always
@@ -164,7 +164,7 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ priceModel3 * 1.2 }}</span
+            >€ {{ largeValue * 1.2 }}</span
           >
         </div>
         <div class="text-caption text-grey">
@@ -179,7 +179,7 @@
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary"> Invest </q-btn>
+        <q-btn color="primary" @click="click(largeValue)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -191,19 +191,19 @@
     persistent
   >
     <q-card>
-      <q-card-section>
+      <q-card-section class="bg-primary text-white">
         <div class="text-h6">Investment plan</div>
       </q-card-section>
 
-      <q-card-section class="q-pt-none">
+      <q-card-section class="q-py-lg">
         <p>
           Investment of
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ priceModel1 }}</span
+            >€ {{ myValue }}</span
           >
           with gain projections
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ priceModel1 * 1.2 }}</span
+            >€ {{ myValue * 1.2 }}</span
           >.
         </p>
         <div class="text-caption text-grey">
@@ -219,7 +219,7 @@
           label="Confirm"
           color="primary"
           v-close-popup
-          @click="triggerPositive"
+          @click="triggerPositive()"
           href="/#/my_investments"
         />
       </q-card-actions>
@@ -228,36 +228,37 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 
 export default defineComponent({
-  name: "PageIndex",
+  name: "Investment Plans",
 
-  setup() {
-    const priceModel1 = ref(50);
-    const priceModel2 = ref(1050);
-    const priceModel3 = ref(10050);
-
-    const $q = useQuasar();
-
+  data() {
     return {
-      priceModel1,
-      priceModel2,
-      priceModel3,
-      openInvest: ref(false),
+      $q: useQuasar(),
 
-      smallValue: computed(() => `€ ${priceModel1.value}`),
-      mediumValue: computed(() => `€ ${priceModel2.value}`),
-      largeValue: computed(() => `€ ${priceModel3.value}`),
+      smallValue: 50,
+      mediumValue: 1050,
+      largeValue: 10050,
 
-      triggerPositive() {
-        $q.notify({
-          type: "positive",
-          message: "Successfully confirmed investment plan.",
-        });
-      },
+      openInvest: false,
+      myValue: 0,
     };
+  },
+
+  methods: {
+    triggerPositive() {
+      this.$q.notify({
+        type: "positive",
+        message: "Successfully confirmed investment plan.",
+      });
+    },
+
+    click(num) {
+      this.myValue = num;
+      this.openInvest = true;
+    },
   },
 });
 </script>
