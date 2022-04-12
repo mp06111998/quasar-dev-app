@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pa-md" style="background-color: lightgrey">
-    <q-card class="my-card">
+    <q-card class="my-card" style="max-width: ">
       <div class="row">
         <div class="col-3 q-pa-sm">
           <span class="col text-h6 ellipsis">Small Gain</span>

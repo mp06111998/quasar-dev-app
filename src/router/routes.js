@@ -30,6 +30,17 @@ const routes = [
     ],
   },
 
+  {
+    path: "/home",
+    component: () => import("layouts/HomeMainLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/Home.vue"),
+      },
+    ],
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
