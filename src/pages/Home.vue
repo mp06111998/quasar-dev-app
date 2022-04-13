@@ -7,7 +7,7 @@
   />
   <q-page class="q-pa-md bg-image">
     <div class="justify-center full-height full-width text-center myFont">
-      <h1 style="color: white">Investment Platform</h1>
+      <h1 style="color: white">Investing Platform</h1>
       <h2 style="color: lightgrey">
         Who needs bitcoin, when you have Juicy Gain?
       </h2>
