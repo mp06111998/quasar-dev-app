@@ -30,19 +30,19 @@
           @click="toggleAccount"
         >
           <q-list>
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup>
               <q-item-section>
                 <q-item-label>Profile</q-item-label>
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup>
               <q-item-section>
                 <q-item-label>Settings</q-item-label>
               </q-item-section>
             </q-item>
             <q-separator />
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup @click="onLogOut()" href="/#/home">
               <q-item-section>
                 <q-item-label>Log Out</q-item-label>
               </q-item-section>
@@ -126,6 +126,12 @@ export default defineComponent({
 
       toggleAccount() {},
     };
+  },
+
+  methods: {
+    onLogOut() {
+      console.log("Logged out!");
+    },
   },
 });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center" style="background-color: lightgrey">
-    <q-card class="my-card q-mx-md q-my-md">
+    <q-card class="my-card q-mx-md q-my-md" style="max-width: 350px">
       <q-img style="height: 220px" src="~assets/small.jpg" />
 
       <q-card-section>
@@ -30,7 +30,6 @@
           :inner-max="1000"
           :label-value="smallValue"
           :step="50"
-          markers
           label
           label-always
           :min="50"
@@ -46,11 +45,8 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 120 days.
-          <br />
-          After 120 days you get profit of 20%. Everything else
-          <br />
-          is on Juicy Gain.
+          All investment plans lock your investment for 120 days. After 120 days
+          you get profit of 20%. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
 
@@ -61,7 +57,7 @@
       </q-card-actions>
     </q-card>
 
-    <q-card class="my-card q-mx-md q-my-md">
+    <q-card class="my-card q-mx-md q-my-md" style="max-width: 350px">
       <q-img style="height: 220px" src="~assets/medium.jpg" />
 
       <q-card-section>
@@ -91,7 +87,6 @@
           :inner-max="10000"
           :label-value="mediumValue"
           :step="50"
-          markers
           label
           label-always
           :min="1050"
@@ -107,11 +102,8 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 120 days.
-          <br />
-          After 120 days you get profit of 20%. Everything else
-          <br />
-          is on Juicy Gain.
+          All investment plans lock your investment for 120 days. After 120 days
+          you get profit of 20%. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
 
@@ -122,7 +114,7 @@
       </q-card-actions>
     </q-card>
 
-    <q-card class="my-card q-mx-md q-my-md">
+    <q-card class="my-card q-mx-md q-my-md" style="max-width: 350px">
       <q-img style="height: 220px" src="~assets/large.jpg" />
 
       <q-card-section>
@@ -152,7 +144,6 @@
           :inner-max="20000"
           :label-value="largeValue"
           :step="50"
-          markers
           label
           label-always
           :min="10050"
@@ -168,11 +159,8 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 120 days.
-          <br />
-          After 120 days you get profit of 20%. Everything else
-          <br />
-          is on Juicy Gain.
+          All investment plans lock your investment for 120 days. After 120 days
+          you get profit of 20%. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
 
@@ -190,7 +178,7 @@
     transition-hide="rotate"
     persistent
   >
-    <q-card>
+    <q-card style="max-width: 410px">
       <q-card-section class="bg-primary text-white">
         <div class="text-h6">Investment plan</div>
       </q-card-section>
@@ -208,7 +196,6 @@
         </p>
         <div class="text-caption text-grey">
           After you confirm your investment plan, your investment will apear
-          <br />
           under "My investments" in menu. There you can pay or cancel it.
         </div>
       </q-card-section>

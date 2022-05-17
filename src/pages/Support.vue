@@ -1,8 +1,7 @@
 <template>
   <q-page class="q-pa-md" style="background-color: lightgrey">
-    Support
-    <div v-if="printamo()">{{ test }}</div>
-  </q-page>
+    Support under maintenance</q-page
+  >
 </template>
 
 <script>

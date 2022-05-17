@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pa-md" style="background-color: lightgrey">
-    Greenpaper
+    Greenpaper under maintenance
   </q-page>
 </template>
 

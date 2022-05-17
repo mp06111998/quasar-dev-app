@@ -1,32 +1,85 @@
 <template>
-  <q-page class="q-pa-md" style="background-color: lightgrey">
-    <q-card class="my-card" style="max-width: ">
-      <div class="row">
-        <div class="col-3 q-pa-sm">
-          <span class="col text-h6 ellipsis">Small Gain</span>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+    rel="stylesheet"
+  />
+  <q-page style="background-color: lightgrey">
+    <div style="background-color: white" class="bg-image">
+      <!-- <q-img style="height: 220px" src="~assets/my.jpeg" /> -->
+      <div class="justify-center full-height full-width text-center myFont">
+        <div style="color: white; font-size: 70px; height: 200px"></div>
+      </div>
+    </div>
+
+    <div class="q-pa-md">
+      <q-card class="my-card" style="max-width: 1100px; margin: 0 auto">
+        <q-card-section>
+          <div class="text-h6 q-mb-xs">Small Gain</div>
+          <q-linear-progress size="18px" :value="progress1" color="black">
+            <div class="absolute-full flex flex-center">
+              <q-badge
+                color="white"
+                text-color="black"
+                :label="progressLabel1()"
+              />
+            </div>
+          </q-linear-progress>
           <br />
+          <span>Invested amount:&nbsp;</span>
+          <span class="q-px-sm" style="background-color: black; color: white"
+            >€ {{ 100 * 1.0 }}</span
+          >
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;Gain projections:&nbsp;</span>
           <span class="q-px-sm" style="background-color: black; color: white"
             >€ {{ 100 * 1.2 }}</span
           >
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;Status:&nbsp;</span>
+          <q-badge rounded color="red"> UNPAID </q-badge>
+          <q-badge rounded color="green"> LIVE </q-badge>
+        </q-card-section>
+        <q-separator />
+        <q-card-actions align="right">
+          <q-btn color="primary" @click="pay()"> Payment </q-btn>
+          <q-btn color="primary" @click="pay()"> Withdraw </q-btn>
+        </q-card-actions>
+      </q-card>
+    </div>
+
+    <div class="q-pa-md">
+      <q-card class="my-card" style="max-width: 1100px; margin: 0 auto">
+        <div class="row">
+          <div class="col-3 q-pa-sm">
+            <span class="col text-h6 ellipsis">Small Gain</span>
+            <br />
+            <span class="q-px-sm" style="background-color: black; color: white"
+              >€ {{ 100 * 1.2 }}</span
+            >
+          </div>
+          <div class="col-9">
+            <q-card-section absolute-right>
+              <q-linear-progress size="18px" :value="progress1" color="black">
+                <div class="absolute-full flex flex-center">
+                  <q-badge
+                    color="white"
+                    text-color="black"
+                    :label="progressLabel1()"
+                  />
+                </div>
+              </q-linear-progress>
+            </q-card-section>
+          </div>
         </div>
-        <div class="col-9">
-          <q-card-section absolute-right>
-            <q-linear-progress size="18px" :value="progress1" color="black">
-              <div class="absolute-full flex flex-center">
-                <q-badge
-                  color="white"
-                  text-color="black"
-                  :label="progressLabel1()"
-                />
-              </div>
-            </q-linear-progress>
-          </q-card-section>
-        </div>
-      </div>
-      <q-card-actions align="right">
-        <q-btn color="primary" @click="pay()"> Payment </q-btn>
-      </q-card-actions>
-    </q-card>
+        <q-card-actions align="right">
+          <span>Status:&nbsp;</span>
+          <q-badge rounded color="red"> UNPAID </q-badge>
+          <q-badge rounded color="green"> LIVE </q-badge>
+          <span>&nbsp;&nbsp;</span>
+          <q-btn color="primary" @click="pay()"> Payment </q-btn>
+        </q-card-actions>
+      </q-card>
+    </div>
   </q-page>
 
   <q-dialog
@@ -35,15 +88,22 @@
     transition-hide="rotate"
     persistent
   >
-    <q-card>
+    <q-card style="max-width: 410px">
       <q-card-section class="bg-primary text-white">
         <div class="text-h6">Pay investment</div>
       </q-card-section>
 
       <q-card-section class="q-py-lg">
+        <div style="text-align: center">
+          <q-img
+            style="max-width: 40%; max-height: 40%"
+            src="~assets/tether.png"
+          />
+        </div>
+        <br />
         <p>
-          Only current payment on platform is with crypto. Investment
-          <br />of
+          Only Ethereum blockchain. Only current payment on platform is with
+          crypto Tether. Investment of
           <span class="q-px-sm" style="background-color: black; color: white"
             >€ 22</span
           >. Note that you need to pay Gas Fee too.
@@ -57,9 +117,8 @@
         </div>
 
         <div class="text-caption text-grey">
-          After you pay your investment plan and we sucessfully confirm it,
-          <br />
-          your investment will go live.
+          After you pay your investment plan and we sucessfully confirm it, your
+          investment will go live.
         </div>
       </q-card-section>
       <q-separator />
@@ -93,3 +152,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.bg-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(~assets/background.jpg);
+  background-size: cover;
+}
+</style>
