@@ -11,18 +11,91 @@
   />
   <q-page class="q-pa-md bg-image">
     <div class="justify-center full-height full-width text-center myFont">
-      <h1 style="color: white">Investing Platform</h1>
-      <h2 style="color: lightgrey">
-        Who needs bitcoin, when you have Juicy Gain?
-      </h2>
-      <h4 style="color: white">
-        Become <span style="color: lightgrey">investor</span> and benefit from
-        the booming gains
-        <br />
-        Be among <span style="color: lightgrey">the first</span> to join the
-        movement
-      </h4>
+      <h2 style="color: white">Sign Up</h2>
     </div>
+    <br />
+    <q-input
+      v-model="firstName"
+      rounded
+      standout
+      dense
+      type="text"
+      bg-color="white"
+      label-color="black"
+      input-style="color: black"
+      label="First Name"
+      style="width: 300px; margin: 0 auto"
+    />
+    <br />
+    <q-input
+      v-model="lastName"
+      rounded
+      standout
+      dense
+      type="text"
+      bg-color="white"
+      label-color="black"
+      input-style="color: black"
+      label="Last Name"
+      style="width: 300px; margin: 0 auto"
+    />
+    <br />
+    <q-input
+      v-model="email"
+      rounded
+      standout
+      dense
+      type="email"
+      bg-color="white"
+      label-color="black"
+      input-style="color: black"
+      label="Email"
+      style="width: 300px; margin: 0 auto"
+    />
+    <br />
+    <q-input
+      v-model="password"
+      rounded
+      standout
+      dense
+      type="password"
+      bg-color="white"
+      label-color="black"
+      input-style="color: black"
+      label="Password"
+      style="width: 300px; margin: 0 auto"
+    />
+    <br />
+    <div class="q-gutter-sm text-center">
+      <q-checkbox
+        size="xs"
+        v-model="left2"
+        val="xs"
+        dark
+        color="green"
+        style="color: white"
+        label="I have read and accept Terms and Conditions"
+      />
+    </div>
+    <br />
+    <div style="width: 86px; margin: 0 auto">
+      <q-btn
+        class="glossy"
+        color="white"
+        @click="signIn()"
+        rounded
+        text-color="black"
+        href="/#/investment_plans"
+      >
+        Sign up
+      </q-btn>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <br />
     <br />
     <br />
@@ -109,6 +182,11 @@ export default defineComponent({
   data() {
     return {
       test: true,
+      email: "",
+      password: "",
+      left2: false,
+      firstName: "",
+      lastName: "",
     };
   },
 

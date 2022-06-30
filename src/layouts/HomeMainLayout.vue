@@ -11,6 +11,26 @@
             />
           </a>
         </q-toolbar-title>
+        <q-btn
+          class="glossy"
+          color="white"
+          @click="signIn()"
+          rounded
+          text-color="black"
+          href="/#/sign_in"
+        >
+          Sign in
+        </q-btn>
+        <q-btn
+          color="white"
+          @click="signIn()"
+          rounded
+          text-color="black"
+          class="q-ml-md glossy"
+          href="/#/sign_up"
+        >
+          Sign up
+        </q-btn>
       </q-toolbar>
     </q-header>
 

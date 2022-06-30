@@ -6,12 +6,12 @@
     rel="stylesheet"
   />
   <q-page style="background-color: lightgrey">
-    <div style="background-color: white" class="bg-image">
-      <!-- <q-img style="height: 220px" src="~assets/my.jpeg" /> -->
+    <!--<div style="background-color: white" class="bg-image">
       <div class="justify-center full-height full-width text-center myFont">
         <div style="color: white; font-size: 70px; height: 200px"></div>
       </div>
-    </div>
+    </div>-->
+    <!-- <q-img style="height: 220px" src="~assets/my.jpeg" /> -->
 
     <div class="q-pa-md">
       <q-card class="my-card" style="max-width: 1100px; margin: 0 auto">
@@ -27,6 +27,11 @@
             </div>
           </q-linear-progress>
           <br />
+          <div class="text-caption text-grey">
+            Investment payed on 24.06.2022. And will be withdrawable on
+            30.10.2022.
+          </div>
+          <br />
           <span>Invested amount:&nbsp;</span>
           <span class="q-px-sm" style="background-color: black; color: white"
             >€ {{ 100 * 1.0 }}</span
@@ -38,45 +43,22 @@
           <span>&nbsp;&nbsp;&nbsp;&nbsp;Status:&nbsp;</span>
           <q-badge rounded color="red"> UNPAID </q-badge>
           <q-badge rounded color="green"> LIVE </q-badge>
+          <q-badge rounded color="orange"> WITHDRAWABLE </q-badge>
         </q-card-section>
         <q-separator />
         <q-card-actions align="right">
+          <div class="q-gutter-md" style="margin-right: 5px; font-size: 1.5em">
+            <q-icon name="info" />
+            <q-tooltip
+              anchor="top middle"
+              self="center middle"
+              style="max-width: 150px"
+            >
+              Here I am! asd asd sad sad asd displayasd
+            </q-tooltip>
+          </div>
           <q-btn color="primary" @click="pay()"> Payment </q-btn>
           <q-btn color="primary" @click="pay()"> Withdraw </q-btn>
-        </q-card-actions>
-      </q-card>
-    </div>
-
-    <div class="q-pa-md">
-      <q-card class="my-card" style="max-width: 1100px; margin: 0 auto">
-        <div class="row">
-          <div class="col-3 q-pa-sm">
-            <span class="col text-h6 ellipsis">Small Gain</span>
-            <br />
-            <span class="q-px-sm" style="background-color: black; color: white"
-              >€ {{ 100 * 1.2 }}</span
-            >
-          </div>
-          <div class="col-9">
-            <q-card-section absolute-right>
-              <q-linear-progress size="18px" :value="progress1" color="black">
-                <div class="absolute-full flex flex-center">
-                  <q-badge
-                    color="white"
-                    text-color="black"
-                    :label="progressLabel1()"
-                  />
-                </div>
-              </q-linear-progress>
-            </q-card-section>
-          </div>
-        </div>
-        <q-card-actions align="right">
-          <span>Status:&nbsp;</span>
-          <q-badge rounded color="red"> UNPAID </q-badge>
-          <q-badge rounded color="green"> LIVE </q-badge>
-          <span>&nbsp;&nbsp;</span>
-          <q-btn color="primary" @click="pay()"> Payment </q-btn>
         </q-card-actions>
       </q-card>
     </div>
@@ -89,7 +71,7 @@
     persistent
   >
     <q-card style="max-width: 410px">
-      <q-card-section class="bg-primary text-white">
+      <q-card-section class="bg-black text-white">
         <div class="text-h6">Pay investment</div>
       </q-card-section>
 
