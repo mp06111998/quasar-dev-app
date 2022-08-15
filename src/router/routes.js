@@ -1,6 +1,6 @@
 const routes = [
   {
-    path: "/",
+    path: "/user",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
@@ -31,7 +31,7 @@ const routes = [
   },
 
   {
-    path: "/home",
+    path: "",
     component: () => import("layouts/HomeMainLayout.vue"),
     children: [
       {
@@ -49,6 +49,10 @@ const routes = [
       {
         path: "/impressum",
         component: () => import("pages/Impressum.vue"),
+      },
+      {
+        path: "/green_paper",
+        component: () => import("pages/Green.vue"),
       },
     ],
   },

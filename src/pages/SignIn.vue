@@ -67,7 +67,7 @@
     <br />
     <br />
     <div class="row">
-      <div class="col-4 myFont" style="text-align: left; color: white">
+      <div class="col-1 col-md-4 myFont" style="text-align: left; color: white">
         <!--<a style="color: white; font-size: 30px"
           ><i style="width: 40px" class="las la-map-marker-alt"></i
         ></a>
@@ -78,37 +78,49 @@
         ></a>
         juicygain@gmail.com -->
       </div>
-      <div class="col-2 myFont" style="text-align: center; color: white">
-        <a href="" style="color: white; text-decoration: none"
+      <div
+        class="col-3 col-md-2 myFont"
+        style="text-align: center; color: white"
+      >
+        <a
+          href="/#/terms_and_conditions"
+          style="color: white; text-decoration: none"
           >Terms and Conditions</a
         >
         <br />
         <br />
-        <a href="" style="color: white; text-decoration: none">Greenpaper</a>
+        <a href="/#/green_paper" style="color: white; text-decoration: none"
+          >Greenpaper</a
+        >
       </div>
-      <div class="col-2 myFont" style="text-align: center">
-        <a href="" style="color: white; text-decoration: none"
+      <div class="col-5 col-md-2 myFont" style="text-align: center">
+        <a href="/#/privacy_policy" style="color: white; text-decoration: none"
           >Privacy policy</a
         >
         <br />
         <br />
-        <a href="" style="color: white; text-decoration: none">Impressum</a>
+        <a href="/#/impressum" style="color: white; text-decoration: none"
+          >Impressum</a
+        >
       </div>
-      <div class="col-4 myFont" style="text-align: right; color: white">
+      <div
+        class="col-1 col-md-4 myFont"
+        style="text-align: right; color: white"
+      >
         <!-- <q-btn
           fab
           color="primary"
           class="lab la-youtube"
           style="font-size: 30px"
         /> -->
-        <a
+        <!--<a
           href="http://juicytelegram.com/"
           target="_blank"
           style="color: white; text-decoration: none"
           ><span v-if="!$q.screen.lt.md">Telegram</span
           ><i style="width: 40px; font-size: 30px" class="lab la-telegram"></i
         ></a>
-        <br />
+        <br />-->
         <a
           href="https://www.instagram.com/juicygain/"
           target="_blank"

@@ -42,7 +42,7 @@
               </q-item-section>
             </q-item>
             <q-separator />
-            <q-item clickable v-close-popup @click="onLogOut()" href="/#/home">
+            <q-item clickable v-close-popup @click="onLogOut()" href="/#/">
               <q-item-section>
                 <q-item-label>Log Out</q-item-label>
               </q-item-section>

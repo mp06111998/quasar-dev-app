@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar style="height: 100px">
         <q-toolbar-title>
-          <a href="/#/home">
+          <a href="/#/">
             <img
               alt="Juicy gain logo"
               src="~assets/logo.png"
