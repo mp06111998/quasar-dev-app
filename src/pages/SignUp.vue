@@ -391,4 +391,10 @@ export default defineComponent({
     url(~assets/background.jpg);
   background-size: cover;
 }
+
+div .q-field__messages {
+  font-size: 14px;
+  font-weight: bold;
+  color: red !important;
+}
 </style>

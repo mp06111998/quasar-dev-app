@@ -44,7 +44,9 @@
         juicygain@gmail.com -->
       </div>
       <div class="col-2 myFont" style="text-align: center; color: white">
-        <a href="" style="color: white; text-decoration: none"
+        <a
+          href="/#/terms_and_conditions"
+          style="color: white; text-decoration: none"
           >Terms and Conditions</a
         >
         <br />
@@ -52,12 +54,14 @@
         <a href="" style="color: white; text-decoration: none">Greenpaper</a>
       </div>
       <div class="col-2 myFont" style="text-align: center">
-        <a href="" style="color: white; text-decoration: none"
+        <a href="/#/privacy_policy" style="color: white; text-decoration: none"
           >Privacy policy</a
         >
         <br />
         <br />
-        <a href="" style="color: white; text-decoration: none">Impressum</a>
+        <a href="/#/impressum" style="color: white; text-decoration: none"
+          >Impressum</a
+        >
       </div>
       <div class="col-4 myFont" style="text-align: right; color: white">
         <!-- <q-btn

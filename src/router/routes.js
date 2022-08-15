@@ -38,6 +38,18 @@ const routes = [
         path: "",
         component: () => import("pages/Home.vue"),
       },
+      {
+        path: "/terms_and_conditions",
+        component: () => import("pages/TermsAndConditions.vue"),
+      },
+      {
+        path: "/privacy_policy",
+        component: () => import("pages/PrivacyPolicy.vue"),
+      },
+      {
+        path: "/impressum",
+        component: () => import("pages/Impressum.vue"),
+      },
     ],
   },
 
