@@ -24,6 +24,10 @@
       label-color="black"
       input-style="color: black"
       label="First Name"
+      hide-bottom-space
+      :error="firstNameError"
+      error-message="This is a required field!"
+      @click="onFirstNameInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -37,6 +41,10 @@
       label-color="black"
       input-style="color: black"
       label="Last Name"
+      hide-bottom-space
+      :error="lastNameError"
+      error-message="This is a required field!"
+      @click="onLastNameInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -50,6 +58,16 @@
       label-color="black"
       input-style="color: black"
       label="Email"
+      hide-bottom-space
+      :error="emailError || emailReqError || emailUsedError"
+      :error-message="
+        emailError
+          ? 'This is a required field!'
+          : emailUsedError
+          ? 'This email has already been taken!'
+          : 'Invalid email address!'
+      "
+      @click="onEmailInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -63,6 +81,14 @@
       label-color="black"
       input-style="color: black"
       label="Password"
+      hide-bottom-space
+      :error="passwordError || passwordReqError"
+      :error-message="
+        passwordError
+          ? 'This is a required field!'
+          : 'The password must contain at least six characters!'
+      "
+      @click="onPasswordInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -73,7 +99,8 @@
         val="xs"
         dark
         color="green"
-        style="color: white"
+        :style="left2Error ? 'color:red' : 'color: white'"
+        @click="onLeft2Input()"
         label="I have read and accept Terms and Conditions"
       />
     </div>
@@ -82,12 +109,12 @@
       <q-btn
         class="glossy"
         color="white"
-        @click="signIn()"
+        @click="signUp()"
         rounded
         text-color="black"
-        href="/#/investment_plans"
       >
         Sign up
+        <!--href="/#/investment_plans"-->
       </q-btn>
     </div>
     <br />
@@ -106,7 +133,7 @@
     <br />
     <div class="row">
       <div class="col-4 myFont" style="text-align: left; color: white">
-        <a style="color: white; font-size: 30px"
+        <!--<a style="color: white; font-size: 30px"
           ><i style="width: 40px" class="las la-map-marker-alt"></i
         ></a>
         Ljubljana, Slovenia
@@ -114,23 +141,23 @@
         <a style="color: white; font-size: 30px"
           ><i style="width: 40px" class="las la-envelope"></i
         ></a>
-        juicygain@gmail.com
+        juicygain@gmail.com -->
       </div>
       <div class="col-2 myFont" style="text-align: center; color: white">
-        <a href="" style="color: white; text-decoration: none">Greenpaper</a>
-        <br />
-        <br />
-        <a href="" style="color: white; text-decoration: none">Impressum</a>
-      </div>
-      <div class="col-2 myFont" style="text-align: center">
         <a href="" style="color: white; text-decoration: none"
           >Terms and Conditions</a
         >
         <br />
         <br />
+        <a href="" style="color: white; text-decoration: none">Greenpaper</a>
+      </div>
+      <div class="col-2 myFont" style="text-align: center">
         <a href="" style="color: white; text-decoration: none"
           >Privacy policy</a
         >
+        <br />
+        <br />
+        <a href="" style="color: white; text-decoration: none">Impressum</a>
       </div>
       <div class="col-4 myFont" style="text-align: right; color: white">
         <!-- <q-btn
@@ -143,30 +170,24 @@
           href="http://juicytelegram.com/"
           target="_blank"
           style="color: white; text-decoration: none"
-          >Telegram<i
-            style="width: 40px; font-size: 30px"
-            class="lab la-telegram"
-          ></i
+          ><span v-if="!$q.screen.lt.md">Telegram</span
+          ><i style="width: 40px; font-size: 30px" class="lab la-telegram"></i
         ></a>
         <br />
         <a
           href="https://www.instagram.com/juicygain/"
           target="_blank"
           style="color: white; text-decoration: none"
-          >Instagram<i
-            style="width: 40px; font-size: 30px"
-            class="lab la-instagram"
-          ></i
+          ><span v-if="!$q.screen.lt.md">Instagram</span
+          ><i style="width: 40px; font-size: 30px" class="lab la-instagram"></i
         ></a>
         <br />
         <a
           href="https://www.youtube.com/channel/UCse9wDIa_u6Yh3IdVHp5wOQ"
           target="_blank"
           style="color: white; text-decoration: none"
-          >Youtube<i
-            style="width: 40px; font-size: 30px"
-            class="lab la-youtube"
-          ></i
+          ><span v-if="!$q.screen.lt.md">Youtube</span
+          ><i style="width: 40px; font-size: 30px" class="lab la-youtube"></i
         ></a>
       </div>
     </div>
@@ -174,7 +195,19 @@
 </template>
 
 <script>
+import db from "src/boot/firebase";
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  setDoc,
+  addDoc,
+} from "firebase/firestore";
 import { defineComponent } from "vue";
+import { useQuasar } from "quasar";
+import { computed } from "vue";
 
 export default defineComponent({
   name: "Home",
@@ -187,6 +220,15 @@ export default defineComponent({
       left2: false,
       firstName: "",
       lastName: "",
+      users: [],
+      firstNameError: false,
+      lastNameError: false,
+      emailError: false,
+      emailReqError: false,
+      emailUsedError: false,
+      passwordError: false,
+      passwordReqError: false,
+      left2Error: false,
     };
   },
 
@@ -194,6 +236,151 @@ export default defineComponent({
     printamo() {
       return this.test;
     },
+
+    getUserByEmail() {
+      const q = query(
+        collection(db, "users"),
+        where("email", "==", this.email)
+      );
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          let usersChange = change.doc.data();
+          if (change.type === "added") {
+            //console.log("New user: ", usersChange);
+            //console.log(usersChange);
+            this.users.unshift(usersChange);
+            //console.log(this.users.length);
+          }
+          if (change.type === "modified") {
+            //console.log("Modified user: ", usersChange);
+          }
+          if (change.type === "removed") {
+            //console.log("Removed user: ", usersChange);
+          }
+        });
+      });
+    },
+
+    /*async signUp() {
+      let newUser = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        password: this.password,
+      };
+
+      // check if email exists
+      this.getUserByEmail();
+
+      console.log("izveden zapis");
+      if (this.users.length == 0) {
+        // save user
+        const docRef = await addDoc(collection(db, "users"), newUser);
+      } else {
+        this.emailError = true;
+        this.users = [];
+      }
+    },*/
+
+    onFirstNameInput() {
+      this.firstNameError = false;
+    },
+    onLastNameInput() {
+      this.lastNameError = false;
+    },
+    onEmailInput() {
+      this.emailError = false;
+      this.emailReqError = false;
+      this.emailUsedError = false;
+    },
+    onPasswordInput() {
+      this.passwordError = false;
+      this.passwordReqError = false;
+    },
+    onLeft2Input() {
+      this.left2Error = false;
+    },
+
+    checkForErrors() {
+      let error = false;
+
+      if (this.firstName === "") {
+        this.firstNameError = true;
+        error = true;
+      }
+      if (this.lastName === "") {
+        this.lastNameError = true;
+        error = true;
+      }
+      if (this.email === "") {
+        this.emailError = true;
+        error = true;
+      }
+      if (!this.isEmailValid(this.email)) {
+        this.emailReqError = true;
+        error = true;
+      }
+      if (this.password === "") {
+        this.passwordError = true;
+        error = true;
+      }
+      if (this.password.length < 6) {
+        this.passwordReqError = true;
+        error = true;
+      }
+      if (this.left2 == false) {
+        this.left2Error = true;
+        error = true;
+      }
+
+      return error;
+    },
+
+    isEmailValid(email) {
+      let regex = new RegExp("[a-z0-9]+@[a-z]+\.[a-z]{2,3}");
+      return regex.test(email);
+    },
+
+    async signUp() {
+      if (!this.checkForErrors()) {
+        let newUser = {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          password: this.password,
+        };
+
+        // check if email exists (fill table users with match email)
+        const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+        this.getUserByEmail();
+        await sleep(1000);
+
+        if (this.users.length == 0) {
+          // save user
+          const docRef = await addDoc(collection(db, "users"), newUser);
+          this.users = [];
+
+          this.$router.push("/sign_in");
+
+          this.$q.notify({
+            type: "positive",
+            message: "Sign up successful.",
+          });
+        } else {
+          this.emailUsedError = true;
+          this.users = [];
+        }
+      }
+    },
+  },
+
+  setup() {
+    const $q = useQuasar();
+    const buttonColor = computed(() => {
+      return $q.screen.lt.md ? true : false;
+    });
+
+    return { buttonColor };
   },
 });
 </script>

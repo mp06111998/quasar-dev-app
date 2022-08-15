@@ -58,7 +58,7 @@
             </q-tooltip>
           </div>
           <q-btn color="primary" @click="pay()"> Payment </q-btn>
-          <q-btn color="primary" @click="pay()"> Withdraw </q-btn>
+          <q-btn color="primary" disabled @click="pay()"> Withdraw </q-btn>
         </q-card-actions>
       </q-card>
     </div>

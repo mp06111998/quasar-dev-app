@@ -14,22 +14,22 @@
         <q-btn
           class="glossy"
           color="white"
-          @click="signIn()"
           rounded
           text-color="black"
           href="/#/sign_in"
         >
-          Sign in
+          <span v-if="!$q.screen.lt.md">Sign in&nbsp;</span>
+          <q-icon name="login" />
         </q-btn>
         <q-btn
           color="white"
-          @click="signIn()"
           rounded
           text-color="black"
           class="q-ml-md glossy"
           href="/#/sign_up"
         >
-          Sign up
+          <span v-if="!$q.screen.lt.md">Sign up&nbsp;</span>
+          <q-icon name="app_registration" />
         </q-btn>
       </q-toolbar>
     </q-header>
@@ -40,4 +40,18 @@
   </q-layout>
 </template>
 
-<script></script>
+<script>
+import { useQuasar } from "quasar";
+import { computed } from "vue";
+
+export default {
+  setup() {
+    const $q = useQuasar();
+    const buttonColor = computed(() => {
+      return $q.screen.lt.md ? true : false;
+    });
+
+    return { buttonColor };
+  },
+};
+</script>
