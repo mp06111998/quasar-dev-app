@@ -147,25 +147,25 @@
         class="col-3 col-md-2 myFont"
         style="text-align: center; color: white"
       >
+        <a href="/#/green_paper" style="color: white; text-decoration: none"
+          >Greenpaper</a
+        >
+        <br />
+        <br />
         <a
           href="/#/terms_and_conditions"
           style="color: white; text-decoration: none"
           >Terms and Conditions</a
         >
-        <br />
-        <br />
-        <a href="/#/green_paper" style="color: white; text-decoration: none"
-          >Greenpaper</a
-        >
       </div>
       <div class="col-5 col-md-2 myFont" style="text-align: center">
-        <a href="/#/privacy_policy" style="color: white; text-decoration: none"
-          >Privacy policy</a
+        <a href="/#/impressum" style="color: white; text-decoration: none"
+          >Impressum</a
         >
         <br />
         <br />
-        <a href="/#/impressum" style="color: white; text-decoration: none"
-          >Impressum</a
+        <a href="/#/privacy_policy" style="color: white; text-decoration: none"
+          >Privacy Policy</a
         >
       </div>
       <div

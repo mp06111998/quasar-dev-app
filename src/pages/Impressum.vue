@@ -9,25 +9,45 @@
     rel="stylesheet"
     href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
   />
-  <q-page class="flex flex-center" style="background-color: lightgrey">
+  <q-page
+    class="flex flex-center"
+    style="background-color: lightgrey; padding: 2% 5% 2% 5%"
+  >
     <div
       style="
         background-color: white;
-        padding: 5% 10% 10% 10%;
+        padding: 5% 10% 8% 10%;
         border-radius: 100px;
       "
       class="bg-logo"
     >
       <h4><b>Impressum</b></h4>
-      <div style="font-size: 18px">Juicy Gain Platform</div>
+      <div style="font-size: 22px"><b>Juicy Gain Platform</b></div>
       <br />
       <div style="font-size: 10px; color: grey">Legal address:</div>
+      <div style="font-size: 18px">20 Water St, London E14 5GX</div>
       <div style="font-size: 18px">London, United Kingdom</div>
       <br />
-      <div style="font-size: 10px; color: grey">E-mails:</div>
+      <div style="font-size: 10px; color: grey">E-mail:</div>
       <div style="font-size: 18px">support_juicygain@gmail.com</div>
-      <div style="font-size: 18px">business_juicygain@gmail.com</div>
-      <div style="font-size: 18px">legal_juicygain@gmail.com</div>
+      <br />
+      <div style="font-size: 10px; color: grey">Social media:</div>
+      <div style="font-size: 18px">
+        <a
+          href="https://www.instagram.com/juicygain/"
+          target="_blank"
+          style="text-decoration: none"
+          >Juicy Gain Instagram</a
+        >
+      </div>
+      <div style="font-size: 18px">
+        <a
+          href="https://www.youtube.com/channel/UCse9wDIa_u6Yh3IdVHp5wOQ"
+          target="_blank"
+          style="text-decoration: none"
+          >Juicy Gain Youtube</a
+        >
+      </div>
     </div>
   </q-page>
 </template>

@@ -181,7 +181,10 @@
         Acceptance of the User’s order is conditioned on payment through the
         Platform. Acceptable form of payment for the order is cryptocurrency.<br /><br />
         The exchange rate for ETH, USDT and BTC are provided by
-        <a href="https://www.binance.com/en" style="text-decoration: none"
+        <a
+          href="https://www.binance.com/en"
+          target="_blank"
+          style="text-decoration: none"
           >binance.com</a
         >.<br /><br />
         By making a payment, you agree with the established exchange rate and

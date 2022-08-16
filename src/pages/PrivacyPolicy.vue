@@ -97,7 +97,7 @@
         and links clicked. Web beacons are graphic images that are placed on a
         website or in an email that is used to monitor the behaviour of the user
         visiting the website or sending the email. They are often used in
-        combination with cookies.<br /><br />
+        combination with cookies.
       </div>
 
       <h4><b>Use of Information</b></h4>
