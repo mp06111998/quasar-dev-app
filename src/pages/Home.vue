@@ -11,11 +11,27 @@
   />
   <q-page class="q-pa-md bg-image">
     <div class="justify-center full-height full-width text-center myFont">
-      <h1 style="color: white">Automated Sure Betting Platform</h1>
-      <h2 style="color: lightgrey">
+      <h2 style="color: white" v-if="$q.screen.lt.md">
+        Automated Sure Betting Platform
+      </h2>
+      <h3 style="color: lightgrey" v-if="$q.screen.lt.md">
+        Who needs bitcoin, when you have Juicy Gain?
+      </h3>
+      <h5 style="color: white" v-if="$q.screen.lt.md">
+        Become <span style="color: lightgrey">investor</span> and benefit from
+        the booming gains.
+        <br />
+        Be among <span style="color: lightgrey">the first</span> to join the
+        movement.
+      </h5>
+
+      <h1 style="color: white" v-if="!$q.screen.lt.md">
+        Automated Sure Betting Platform
+      </h1>
+      <h2 style="color: lightgrey" v-if="!$q.screen.lt.md">
         Who needs bitcoin, when you have Juicy Gain?
       </h2>
-      <h4 style="color: white">
+      <h4 style="color: white" v-if="!$q.screen.lt.md">
         Become <span style="color: lightgrey">investor</span> and benefit from
         the booming gains.
         <br />
