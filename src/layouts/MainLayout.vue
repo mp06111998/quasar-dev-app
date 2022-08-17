@@ -96,7 +96,7 @@ const linksList = [
   {
     title: "Greenpaper",
     icon: "description",
-    to: "/greenpaper",
+    to: "/green_paper",
   },
   {
     title: "Support",

@@ -147,7 +147,7 @@
         class="col-3 col-md-2 myFont"
         style="text-align: center; color: white"
       >
-        <a href="/#/green_paper" style="color: white; text-decoration: none"
+        <a href="/#/greenpaper" style="color: white; text-decoration: none"
           >Greenpaper</a
         >
         <br />

@@ -24,6 +24,10 @@
       label-color="black"
       input-style="color: black"
       label="Email"
+      hide-bottom-space
+      :error="emailError || emailReqError"
+      :error-message="emailError ? 'This is a required field!' : null"
+      @click="onEmailInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -37,6 +41,14 @@
       label-color="black"
       input-style="color: black"
       label="Password"
+      hide-bottom-space
+      :error="passwordError || passwordReqError"
+      :error-message="
+        passwordError
+          ? 'This is a required field!'
+          : 'Incorrect email address or password!'
+      "
+      @click="onPasswordInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -47,7 +59,6 @@
         @click="signIn()"
         rounded
         text-color="black"
-        href="/#/investment_plans"
       >
         Sign in
       </q-btn>
@@ -82,7 +93,7 @@
         class="col-3 col-md-2 myFont"
         style="text-align: center; color: white"
       >
-        <a href="/#/green_paper" style="color: white; text-decoration: none"
+        <a href="/#/greenpaper" style="color: white; text-decoration: none"
           >Greenpaper</a
         >
         <br />
@@ -142,6 +153,16 @@
 </template>
 
 <script>
+import db from "src/boot/firebase";
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  setDoc,
+  addDoc,
+} from "firebase/firestore";
 import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 import { computed } from "vue";
@@ -154,6 +175,11 @@ export default defineComponent({
       test: true,
       email: "",
       password: "",
+      users: [],
+      emailError: false,
+      emailReqError: false,
+      passwordError: false,
+      passwordReqError: false,
     };
   },
 
@@ -162,8 +188,75 @@ export default defineComponent({
       return this.test;
     },
 
-    signIn() {
-      console.log("test signIn");
+    onEmailInput() {
+      this.emailError = false;
+      this.emailReqError = false;
+    },
+    onPasswordInput() {
+      this.passwordError = false;
+      this.passwordReqError = false;
+    },
+
+    checkForErrors() {
+      let error = false;
+
+      if (this.email === "") {
+        this.emailError = true;
+        error = true;
+      }
+      if (this.password === "") {
+        this.passwordError = true;
+        error = true;
+      }
+
+      return error;
+    },
+
+    getUserLogin() {
+      const q = query(
+        collection(db, "users"),
+        where("email", "==", this.email),
+        where("password", "==", this.password)
+      );
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          let usersChange = change.doc.data();
+          if (change.type === "added") {
+            //console.log("New user: ", usersChange);
+            //console.log(usersChange);
+            this.users.unshift(usersChange);
+            //console.log(this.users.length);
+          }
+          if (change.type === "modified") {
+            //console.log("Modified user: ", usersChange);
+          }
+          if (change.type === "removed") {
+            //console.log("Removed user: ", usersChange);
+          }
+        });
+      });
+    },
+
+    async signIn() {
+      if (!this.checkForErrors()) {
+        const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+        this.getUserLogin();
+        await sleep(1000);
+
+        console.log("asdas");
+        console.log(this.users);
+        console.log("asdas");
+
+        if (!this.users.length == 0) {
+          this.users = [];
+
+          this.$router.push("/investment_plans");
+        } else {
+          this.emailReqError = true;
+          this.passwordReqError = true;
+          this.users = [];
+        }
+      }
     },
   },
 

@@ -20,7 +20,7 @@ const routes = [
         component: () => import("pages/Calendar.vue"),
       },
       {
-        path: "/greenpaper",
+        path: "/green_paper",
         component: () => import("pages/Greenpaper.vue"),
       },
       {
@@ -51,7 +51,7 @@ const routes = [
         component: () => import("pages/Impressum.vue"),
       },
       {
-        path: "/green_paper",
+        path: "/greenpaper",
         component: () => import("pages/Green.vue"),
       },
     ],

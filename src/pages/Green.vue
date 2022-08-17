@@ -82,6 +82,861 @@
       </div>
 
       <div style="font-size: 22px">
+        <b>Bookmakers</b>
+      </div>
+      <div>
+        List of bookmakers that platform performs bets on:
+        <br /><br />
+        <table>
+          <tr>
+            <th>Bookmaker</th>
+            <th>Country</th>
+            <th v-if="!$q.screen.lt.md">Odds</th>
+            <th v-if="!$q.screen.lt.md">Arbs quantity</th>
+            <th v-if="!$q.screen.lt.md">Loyalty</th>
+          </tr>
+          <tr>
+            <td>10bet</td>
+            <td>Great Britain</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>188bet</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>1xbet</td>
+            <td>Russia</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>888Sport</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Bet365</td>
+            <td>Great Britain</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>BetAtHome</td>
+            <td>Austria</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model2"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Betcity</td>
+            <td>Russia</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Betfair</td>
+            <td>Great Britain</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Betflag</td>
+            <td>Italy</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Betfred</td>
+            <td>Great Britain</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model2"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>BetinAsia</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>BetOnline</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model1"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Betsson</td>
+            <td>Greece</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model2"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Bwin</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Rfbet</td>
+            <td>Bulgaria</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Eurobet</td>
+            <td>Italy</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Favbet</td>
+            <td>Ukraine</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Fonbet</td>
+            <td>Greece</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Fortuna</td>
+            <td>Slovakia</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>ImSports</td>
+            <td>China</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>OddSet</td>
+            <td>Germany</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model1"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Pinnacle</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Smarkets</td>
+            <td>Great Britain</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model2"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model5"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Unibet</td>
+            <td>Global</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>WilliamHill</td>
+            <td>Great Britain</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Winlinebet</td>
+            <td>Russia</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model4"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Wplay</td>
+            <td>Colombia</td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+            <td v-if="!$q.screen.lt.md">
+              <q-rating
+                v-model="model3"
+                color="green"
+                readonly
+                icon="star_border"
+                icon-selected="star"
+              />
+            </td>
+          </tr>
+        </table>
+        <br />
+      </div>
+
+      <div style="font-size: 22px">
         <b>Surebet example</b>
       </div>
       <div>
@@ -166,7 +1021,7 @@
       </div>
       <div>
         Juicy Gain Platform is designed to place those surebets for you in
-        background, it works as middleman between bookies and investor. You
+        background, it works as middleman between bookmakers and investor. You
         don't even see any sport bets on platform. On platform you just choose
         investment plan and wait for it to complete.<br /><br />
         Congrats! You earned your first money.<br /><br />
@@ -186,6 +1041,11 @@ export default defineComponent({
   data() {
     return {
       test: true,
+      model1: 1,
+      model2: 2,
+      model3: 3,
+      model4: 4,
+      model5: 5,
     };
   },
 
