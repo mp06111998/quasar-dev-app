@@ -103,7 +103,7 @@
         ></a>
         <br />-->
         <a
-          href="https://www.instagram.com/juicygain/"
+          href="https://www.instagram.com/knightgain/"
           target="_blank"
           style="color: white; text-decoration: none"
           ><span v-if="!$q.screen.lt.md">Instagram</span

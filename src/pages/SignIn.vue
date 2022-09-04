@@ -133,7 +133,7 @@
         ></a>
         <br />-->
         <a
-          href="https://www.instagram.com/juicygain/"
+          href="https://www.instagram.com/knightgain/"
           target="_blank"
           style="color: white; text-decoration: none"
           ><span v-if="!$q.screen.lt.md">Instagram</span
@@ -276,5 +276,11 @@ export default defineComponent({
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(~assets/background.jpg);
   background-size: cover;
+}
+
+div .q-field__messages {
+  font-size: 14px;
+  font-weight: bold;
+  color: red !important;
 }
 </style>
