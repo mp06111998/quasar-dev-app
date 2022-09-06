@@ -38,16 +38,6 @@
           style="background-color: darkgrey; border-radius: 20px"
           class="col-xs-12 col-md-5 q-my-lg q-pa-lg"
         >
-          <q-btn
-            round
-            href="https://www.linkedin.com/in/andrei-harrison-736275249/"
-            color="primary"
-            icon="lab la-linkedin"
-            size="md"
-            class="absolute"
-            style="top: 100px; transform: translateY(-50%)"
-          />
-
           <q-img
             style="
               height: 130px;
@@ -61,9 +51,22 @@
             src="~assets/andrei.jpg"
           />
 
-          <div style="font-size: 18px"><b>Andrei Harrison</b></div>
-          <div><i>Managing director</i></div>
-          <br /><br /><br />
+          <div class="row">
+            <div style="font-size: 18px" class="col-6">
+              <b>Andrei Harrison</b>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"><i>Managing director</i></div>
+            <div class="col-6"></div>
+            <q-btn
+              round
+              href="https://www.linkedin.com/in/andrei-harrison-736275249/"
+              color="primary"
+              icon="lab la-linkedin"
+              size="md"
+              class="q-my-md"
+            />
+          </div>
           <div>
             Finance is not merely about making money. It's about achieving our
             deep goals and protecting the fruits of our labor. It's about
@@ -79,16 +82,6 @@
           style="background-color: darkgrey; border-radius: 20px"
           class="col-xs-12 col-md-5 q-my-lg q-pa-lg"
         >
-          <q-btn
-            round
-            href="https://www.linkedin.com/in/marcos-santos-022613249/"
-            color="primary"
-            icon="lab la-linkedin"
-            size="md"
-            class="absolute"
-            style="top: 100px; transform: translateY(-50%)"
-          />
-
           <q-img
             style="
               height: 130px;
@@ -102,9 +95,22 @@
             src="~assets/marcos.jpg"
           />
 
-          <div style="font-size: 18px"><b>Marcos Santos</b></div>
-          <div><i>Executive director</i></div>
-          <br /><br /><br />
+          <div class="row">
+            <div style="font-size: 18px" class="col-6">
+              <b>Marcos Santos</b>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"><i>Executive director</i></div>
+            <div class="col-6"></div>
+            <q-btn
+              round
+              href="https://www.linkedin.com/in/marcos-santos-022613249/"
+              color="primary"
+              icon="lab la-linkedin"
+              size="md"
+              class="q-my-md"
+            />
+          </div>
           <div>
             The secret of my success is that I make other people money. And,
             never ever, ever, ever be ashamed about trying to earn as much as
@@ -136,9 +142,15 @@
             src="~assets/kerrie.jpeg"
           />
 
-          <div style="font-size: 18px"><b>Kerrie Brooks</b></div>
-          <div><i>Head of marketing</i></div>
-          <br /><br /><br />
+          <div class="row">
+            <div style="font-size: 18px" class="col-6">
+              <b>Kerrie Brooks</b>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"><i>Head of marketing</i></div>
+            <div class="col-6"></div>
+            <br /><br /><br /><br />
+          </div>
           <div>
             Your work is going to fill a large part of your life, and the only
             way to be truly satisfied is to do what you believe is great work.
@@ -168,9 +180,15 @@
             src="~assets/neil.jpeg"
           />
 
-          <div style="font-size: 18px"><b>Neil Gower</b></div>
-          <div><i>Development officer</i></div>
-          <br /><br /><br />
+          <div class="row">
+            <div style="font-size: 18px" class="col-6">
+              <b>Neil Gower</b>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"><i>Development officer</i></div>
+            <div class="col-6"></div>
+            <br /><br /><br /><br />
+          </div>
           <div>
             You win by effort, by commitment, by ambition, by quality, by
             expressing yourself individually but in the team context.
@@ -187,16 +205,6 @@
           style="background-color: darkgrey; border-radius: 20px"
           class="col-xs-12 col-md-5 q-my-lg q-pa-lg"
         >
-          <q-btn
-            round
-            href=""
-            color="primary"
-            icon="lab la-linkedin"
-            size="md"
-            class="absolute"
-            style="top: 100px; transform: translateY(-50%)"
-          />
-
           <q-img
             style="
               height: 130px;
@@ -210,9 +218,22 @@
             src="~assets/sarah.jpeg"
           />
 
-          <div style="font-size: 18px"><b>Sarah Hutchings</b></div>
-          <div><i>Operating officer</i></div>
-          <br /><br /><br />
+          <div class="row">
+            <div style="font-size: 18px" class="col-6">
+              <b>Sarah Hutchings</b>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"><i>Operating officer</i></div>
+            <div class="col-6"></div>
+            <q-btn
+              round
+              href=""
+              color="primary"
+              icon="lab la-linkedin"
+              size="md"
+              class="q-my-md"
+            />
+          </div>
           <div>
             The way a team plays as a whole determines its success. You may have
             the greatest bunch of individual stars in the world, but if they
@@ -242,9 +263,15 @@
             src="~assets/peter.jpeg"
           />
 
-          <div style="font-size: 18px"><b>Peter Hann</b></div>
-          <div><i>Business officer</i></div>
-          <br /><br /><br />
+          <div class="row">
+            <div style="font-size: 18px" class="col-6">
+              <b>Peter Hann</b>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"><i>Business officer</i></div>
+            <div class="col-6"></div>
+            <br /><br /><br /><br />
+          </div>
           <div>
             Challenges are what make life interesting and overcoming them is
             what makes life meaningful.

@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pa-md" style="background-color: lightgrey">
-    <div class="q-pa-md">
-      <q-date v-model="days" title="John Doe" range />
+    <div class="q-pa-md text-center">
+      <q-date title="Calendar" subtitle="Juicy Gain" />
     </div>
   </q-page>
 </template>
@@ -13,10 +13,7 @@ export default defineComponent({
   name: "Calendar",
 
   data() {
-    return {
-      days: [{ from: "2020/07/01", to: "2020/07/10" }],
-      left: 12,
-    };
+    return {};
   },
 });
 </script>
