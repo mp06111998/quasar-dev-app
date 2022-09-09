@@ -166,6 +166,7 @@ import {
 import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 import { computed } from "vue";
+import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 
 export default defineComponent({
   name: "Home",
@@ -250,13 +251,35 @@ export default defineComponent({
         if (!this.users.length == 0) {
           this.users = [];
 
-          this.$router.push("/investment_plans");
+          /*this.$router.push("/investment_plans");*/
+          const auth = getAuth();
+          signInWithEmailAndPassword(getAuth(), this.email, this.password)
+            .then((data) => {
+              console.log("login");
+              console.log(auth.currentUser);
+              this.$router.push("/investment_plans");
+            })
+            .catch((error) => {
+              console.log(error.code);
+              alert(error.message);
+            });
         } else {
           this.emailReqError = true;
           this.passwordReqError = true;
           this.users = [];
         }
       }
+      /*const auth = getAuth();
+      signInWithEmailAndPassword(getAuth(), this.email, this.password)
+        .then((data) => {
+          console.log("login");
+          console.log(auth.currentUser);
+          this.$router.push("/investment_plans");
+        })
+        .catch((error) => {
+          console.log(error.code);
+          alert(error.message);
+        });*/
     },
   },
 

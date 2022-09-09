@@ -106,6 +106,9 @@ const linksList = [
 ];
 
 import { defineComponent, ref } from "vue";
+import { getAuth, onAuthStateChanged, signOut } from "@firebase/auth";
+import { reject } from "q";
+import { removeListener } from "process";
 
 export default defineComponent({
   name: "MainLayout",
@@ -130,8 +133,42 @@ export default defineComponent({
 
   methods: {
     onLogOut() {
+      const auth = getAuth();
+      console.log(auth.currentUser);
+      signOut(auth).then(() => {
+        console.log("33333");
+        console.log(auth.currentUser);
+        this.$router.push("/");
+      });
       console.log("Logged out!");
     },
+
+    /*getCurrentUser() {
+      return new Promise((resolve, reject) => {
+        removeListener = onAuthStateChanged(
+          getAuth,
+          (user) => {
+            removeListener();
+            resolve(user);
+          },
+          reject
+        );
+      });
+    },*/
+  },
+
+  beforeRouteEnter(to, from, next) {
+    //async
+    if (getAuth().currentUser) {
+      //await getCurrentUser()
+      next();
+    } else {
+      /*alert(
+        "You don't have access! Sign in with your account or register one."
+      );*/
+      next("/");
+    }
+    next();
   },
 });
 </script>

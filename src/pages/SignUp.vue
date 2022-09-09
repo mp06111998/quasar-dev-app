@@ -220,6 +220,7 @@ import {
 import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 import { computed } from "vue";
+import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
 
 export default defineComponent({
   name: "Home",
@@ -372,7 +373,16 @@ export default defineComponent({
           const docRef = await addDoc(collection(db, "users"), newUser);
           this.users = [];
 
-          this.$router.push("/sign_in");
+          /*this.$router.push("/sign_in");*/
+          createUserWithEmailAndPassword(getAuth(), this.email, this.password)
+            .then((data) => {
+              console.log("sucessssssss");
+              this.$router.push("/sign_in");
+            })
+            .catch((error) => {
+              console.log(error.code);
+              alert(error.message);
+            });
 
           this.$q.notify({
             type: "positive",
@@ -383,6 +393,15 @@ export default defineComponent({
           this.users = [];
         }
       }
+      /*createUserWithEmailAndPassword(getAuth(), this.email, this.password)
+        .then((data) => {
+          console.log("sucessssssss");
+          this.$router.push("/sign_in");
+        })
+        .catch((error) => {
+          console.log(error.code);
+          alert(error.message);
+        });*/
     },
   },
 
