@@ -6,6 +6,9 @@
     rel="stylesheet"
   />
   <q-page style="background-color: lightgrey">
+    <div v-if="this.investments.length == 0" class="q-pa-md">
+      No investments yet
+    </div>
     <!--<div style="background-color: white" class="bg-image">
       <div class="justify-center full-height full-width text-center myFont">
         <div style="color: white; font-size: 70px; height: 200px"></div>
@@ -13,10 +16,10 @@
     </div>-->
     <!-- <q-img style="height: 220px" src="~assets/my.jpeg" /> -->
 
-    <div class="q-pa-md">
+    <div class="q-pa-md" v-for="item in this.investments" v-bind:key="item">
       <q-card class="my-card" style="max-width: 1100px; margin: 0 auto">
         <q-card-section>
-          <div class="text-h6 q-mb-xs">Small Gain</div>
+          <div class="text-h6 q-mb-xs">My Gain</div>
           <q-linear-progress size="18px" :value="progress1" color="black">
             <div class="absolute-full flex flex-center">
               <q-badge
@@ -28,22 +31,29 @@
           </q-linear-progress>
           <br />
           <div class="text-caption text-grey">
+            <!-- v-if="item.status == 'live'" -->
             Investment payed on 24.06.2022. And will be withdrawable on
             30.10.2022.
           </div>
           <br />
           <span>Invested amount:&nbsp;</span>
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ 100 * 1.0 }}</span
+            >€ {{ item.invested }}</span
           >
           <span>&nbsp;&nbsp;&nbsp;&nbsp;Gain projections:&nbsp;</span>
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ 100 * 1.2 }}</span
+            >€ {{ item.gain }}</span
           >
           <span>&nbsp;&nbsp;&nbsp;&nbsp;Status:&nbsp;</span>
-          <q-badge rounded color="red"> UNPAID </q-badge>
-          <q-badge rounded color="green"> LIVE </q-badge>
-          <q-badge rounded color="orange"> WITHDRAWABLE </q-badge>
+          <q-badge rounded color="red" v-if="item.status == 'unpaid'">
+            UNPAID
+          </q-badge>
+          <q-badge rounded color="green" v-if="item.status == 'live'">
+            LIVE
+          </q-badge>
+          <q-badge rounded color="orange" v-if="item.status == 'withdrawable'">
+            WITHDRAWABLE
+          </q-badge>
         </q-card-section>
         <q-separator />
         <q-card-actions align="right">
@@ -54,7 +64,9 @@
               self="center middle"
               style="max-width: 150px"
             >
-              Here I am! asd asd sad sad asd displayasd
+              After you pay your investment plan and we sucessfully confirm it,
+              your investment will go live. After 60 days button "withdraw" will
+              enable and you will be able to withdraw your gains.
             </q-tooltip>
           </div>
           <q-btn color="primary" @click="pay()"> Payment </q-btn>
@@ -113,6 +125,9 @@
 
 <script>
 import { defineComponent } from "vue";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+import db from "src/boot/firebase";
+import { getAuth } from "@firebase/auth";
 
 export default defineComponent({
   name: "My Investments",
@@ -121,6 +136,7 @@ export default defineComponent({
     return {
       progress1: 0.42,
       openPay: false,
+      investments: [],
     };
   },
 
@@ -129,8 +145,56 @@ export default defineComponent({
       return this.progress1 * 100 + "%";
     },
     pay() {
+      /*const q = query(
+        collection(db, "investments"),
+        where("email", "==", getAuth().currentUser.email)
+      );
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          let usersChange = change.doc.data();
+          if (change.type === "added") {
+            //console.log("New user: ", usersChange);
+            //console.log(usersChange);
+            console.log("#####################");
+            this.investments = usersChange;
+            console.log(this.investments);
+            console.log("#####################");
+            //console.log(this.users.length);
+          }
+          if (change.type === "modified") {
+            //console.log("Modified user: ", usersChange);
+          }
+          if (change.type === "removed") {
+            //console.log("Removed user: ", usersChange);
+          }
+        });
+      });*/
       this.openPay = true;
     },
+  },
+
+  created() {
+    const q = query(
+      collection(db, "investments"),
+      where("email", "==", getAuth().currentUser.email)
+    );
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        let usersChange = change.doc.data();
+        if (change.type === "added") {
+          //console.log("New user: ", usersChange);
+          //console.log(usersChange);
+          this.investments.unshift(usersChange);
+          //console.log(this.users.length);
+        }
+        if (change.type === "modified") {
+          //console.log("Modified user: ", usersChange);
+        }
+        if (change.type === "removed") {
+          //console.log("Removed user: ", usersChange);
+        }
+      });
+    });
   },
 });
 </script>

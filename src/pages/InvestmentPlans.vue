@@ -45,15 +45,16 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 120 days. After 120 days
-          you get profit of 20%. Everything else is on Juicy Gain.
+          All investment plans lock your investment for 60 days. With small gain
+          investment you get profit of 20% after 60 days. Everything else is on
+          Juicy Gain.
         </div>
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary" @click="click(smallValue)"> Invest </q-btn>
+        <q-btn color="primary" @click="click(smallValue, 1.2)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
@@ -75,7 +76,7 @@
             class="col-auto text-grey text-caption q-pt-md row no-wrap items-center"
           >
             <q-icon name="euro" />
-            1050 - 10.000
+            1050 - 10000
           </div>
         </div>
 
@@ -98,19 +99,20 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ mediumValue * 1.2 }}</span
+            >€ {{ mediumValue * 1.4 }}</span
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 120 days. After 120 days
-          you get profit of 20%. Everything else is on Juicy Gain.
+          All investment plans lock your investment for 60 days. With medium
+          gain investment you get profit of 40% after 60 days. Everything else
+          is on Juicy Gain.
         </div>
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary" @click="click(mediumValue)"> Invest </q-btn>
+        <q-btn color="primary" @click="click(mediumValue, 1.4)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
@@ -132,7 +134,7 @@
             class="col-auto text-grey text-caption q-pt-md row no-wrap items-center"
           >
             <q-icon name="euro" />
-            10.050 - 20.000
+            10050 - 20000
           </div>
         </div>
 
@@ -155,19 +157,20 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ largeValue * 1.2 }}</span
+            >€ {{ largeValue * 1.6 }}</span
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 120 days. After 120 days
-          you get profit of 20%. Everything else is on Juicy Gain.
+          All investment plans lock your investment for 60 days. With large gain
+          investment you get profit of 60% after 60 days. Everything else is on
+          Juicy Gain.
         </div>
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary" @click="click(largeValue)"> Invest </q-btn>
+        <q-btn color="primary" @click="click(largeValue, 1.6)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -191,7 +194,7 @@
           >
           with gain projections
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ myValue * 1.2 }}</span
+            >€ {{ myValue * multiplier }}</span
           >.
         </p>
         <div class="text-caption text-grey">
@@ -206,7 +209,7 @@
           label="Confirm"
           color="primary"
           v-close-popup
-          @click="triggerPositive()"
+          @click="invest()"
           href="/#/my_investments"
         />
       </q-card-actions>
@@ -217,6 +220,9 @@
 <script>
 import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
+import { collection, addDoc } from "firebase/firestore";
+import db from "src/boot/firebase";
+import { getAuth } from "@firebase/auth";
 
 export default defineComponent({
   name: "Investment Plans",
@@ -231,20 +237,31 @@ export default defineComponent({
 
       openInvest: false,
       myValue: 0,
+      multiplier: 0,
     };
   },
 
   methods: {
-    triggerPositive() {
+    invest() {
+      let newInvestment = {
+        invested: this.myValue,
+        gain: this.myValue * this.multiplier,
+        email: getAuth().currentUser.email,
+        status: "unpaid",
+      };
+
+      const docRef = addDoc(collection(db, "investments"), newInvestment);
+
       this.$q.notify({
         type: "positive",
         message: "Successfully confirmed investment plan.",
       });
     },
 
-    click(num) {
+    click(num, multiply) {
       this.myValue = num;
       this.openInvest = true;
+      this.multiplier = multiply;
     },
   },
 });
