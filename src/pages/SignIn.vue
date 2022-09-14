@@ -41,6 +41,7 @@
       label-color="black"
       input-style="color: black"
       label="Password"
+      @keyup.enter="signIn()"
       hide-bottom-space
       :error="passwordError || passwordReqError"
       :error-message="

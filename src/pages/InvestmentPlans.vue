@@ -46,8 +46,9 @@
         </div>
         <div class="text-caption text-grey">
           All investment plans lock your investment for 60 days. With small gain
-          investment you get profit of 20% after 60 days. Everything else is on
-          Juicy Gain.
+          investment you get
+          <span style="color: green"><b>profit of 20% after 60 days</b></span
+          >. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
 
@@ -104,8 +105,9 @@
         </div>
         <div class="text-caption text-grey">
           All investment plans lock your investment for 60 days. With medium
-          gain investment you get profit of 40% after 60 days. Everything else
-          is on Juicy Gain.
+          gain investment you get
+          <span style="color: green"><b>profit of 40% after 60 days</b></span
+          >. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
 
@@ -162,8 +164,9 @@
         </div>
         <div class="text-caption text-grey">
           All investment plans lock your investment for 60 days. With large gain
-          investment you get profit of 60% after 60 days. Everything else is on
-          Juicy Gain.
+          investment you get
+          <span style="color: green"><b>profit of 60% after 60 days</b></span
+          >. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
 
@@ -188,18 +191,21 @@
 
       <q-card-section class="q-py-lg">
         <p>
-          Investment of
+          Investment of:
           <span class="q-px-sm" style="background-color: black; color: white"
             >€ {{ myValue }}</span
-          >
-          with gain projections
+          ><br />
+          Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
             >€ {{ myValue * multiplier }}</span
-          >.
+          >
         </p>
         <div class="text-caption text-grey">
           After you confirm your investment plan, your investment will apear
-          under "My investments" in menu. There you can pay or cancel it.
+          <span style="color: green"><b>under "My investments"</b></span> in
+          menu. There
+          <span style="color: green"><b>you can pay or cancel it</b></span
+          >.
         </div>
       </q-card-section>
       <q-separator />
