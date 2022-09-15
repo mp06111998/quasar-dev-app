@@ -22,41 +22,63 @@
           <div class="text-h6 q-mb-xs">My Gain</div>
         </q-card-section>
         <q-separator />
-        <q-card-section>
-          <q-linear-progress size="18px" :value="progress1" color="black">
-            <div class="absolute-full flex flex-center">
-              <q-badge
-                color="white"
-                text-color="black"
-                :label="progressLabel1()"
-              />
-            </div>
-          </q-linear-progress>
-          <br />
-          <div class="text-caption text-grey">
-            <!-- v-if="item.status == 'live'" -->
-            Investment payed on 24.06.2022. And will be withdrawable on
-            30.10.2022.
+        <q-card-section class="row">
+          <div class="col-12 col-sm-4 col-md-4">
+            <span>Invested amount:&nbsp;</span>
+            <span class="q-px-sm" style="background-color: black; color: white"
+              >€ {{ item.invested }}</span
+            ><br />
+            <span>Gain projections:&nbsp;</span>
+            <span class="q-px-sm" style="background-color: black; color: white"
+              >€ {{ item.gain }}</span
+            ><br />
+            <span>Status:&nbsp;</span>
+            <q-badge rounded color="red" v-if="item.status == 'unpaid'">
+              UNPAID
+            </q-badge>
+            <q-badge rounded color="green" v-if="item.status == 'live'">
+              LIVE
+            </q-badge>
+            <q-badge
+              rounded
+              color="orange"
+              v-if="item.status == 'withdrawable'"
+            >
+              WITHDRAWABLE
+            </q-badge>
           </div>
           <br />
-          <span>Invested amount:&nbsp;</span>
-          <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ item.invested }}</span
-          ><br />
-          <span>Gain projections:&nbsp;</span>
-          <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ item.gain }}</span
-          ><br />
-          <span>Status:&nbsp;</span>
-          <q-badge rounded color="red" v-if="item.status == 'unpaid'">
-            UNPAID
-          </q-badge>
-          <q-badge rounded color="green" v-if="item.status == 'live'">
-            LIVE
-          </q-badge>
-          <q-badge rounded color="orange" v-if="item.status == 'withdrawable'">
-            WITHDRAWABLE
-          </q-badge>
+          <div class="col-12 col-sm-1 col-md-0"></div>
+          <br />
+          <div class="col-12 col-sm-7 col-md-8">
+            <q-linear-progress size="18px" :value="progress1" color="black">
+              <div class="absolute-full flex flex-center">
+                <q-badge
+                  color="white"
+                  text-color="black"
+                  :label="progressLabel1()"
+                />
+              </div>
+            </q-linear-progress>
+            <br />
+            <div class="text-caption text-grey" v-if="item.status == 'live'">
+              <!-- v-if="item.status == 'live'" -->
+              Investment payed on
+              {{ calculateToDate(item.date) }}. And will be withdrawable on
+              30.10.2022.
+            </div>
+            <div class="text-caption text-grey" v-if="item.status == 'unpaid'">
+              <!-- v-if="item.status == 'live'" -->
+              Investment is not payed yet.
+            </div>
+            <div
+              class="text-caption text-grey"
+              v-if="item.status == 'withdrawable'"
+            >
+              <!-- v-if="item.status == 'live'" -->
+              Congrats! You can withdraw your money.
+            </div>
+          </div>
         </q-card-section>
         <q-separator />
         <q-card-actions align="right">
@@ -136,7 +158,6 @@
           input-style="color: black"
           readonly
           hide-bottom-space
-          @click="onLastNameInput()"
           label="Network"
           style="width: 300px; margin: 0 auto"
         />
@@ -152,7 +173,7 @@
           input-style="color: black"
           readonly
           hide-bottom-space
-          @click="onLastNameInput()"
+          @click="onCryptoId()"
           label="USDT Deposit Address"
           style="width: 300px; margin: 0 auto"
         />
@@ -210,6 +231,8 @@ import { collection, query, where, onSnapshot } from "firebase/firestore";
 import db from "src/boot/firebase";
 import { getAuth } from "@firebase/auth";
 import { doc, deleteDoc } from "firebase/firestore";
+import { copyToClipboard } from "quasar";
+import { Timestamp } from "firebase/firestore";
 
 export default defineComponent({
   name: "My Investments",
@@ -231,6 +254,9 @@ export default defineComponent({
     progressLabel1() {
       return this.progress1 * 100 + "%";
     },
+    calculateToDate(date) {
+      return date.toDate();
+    },
     cancel(item) {
       this.cancelItem = item;
       this.openCancel = true;
@@ -246,6 +272,14 @@ export default defineComponent({
     },
     async cancelConfirm() {
       await deleteDoc(doc(db, "investments", this.cancelItem.id));
+    },
+    onCryptoId() {
+      copyToClipboard(this.cryptoId);
+
+      this.$q.notify({
+        type: "info",
+        message: "Deposit Address successfully copied.",
+      });
     },
     pay(amount) {
       /*const q = query(
