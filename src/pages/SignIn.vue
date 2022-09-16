@@ -60,9 +60,11 @@
         @click="signIn()"
         rounded
         text-color="black"
+        v-if="!isLoading"
       >
         Sign in
       </q-btn>
+      <q-spinner color="white" size="3em" v-if="isLoading" class="q-ml-md" />
     </div>
     <br />
     <br />
@@ -182,6 +184,7 @@ export default defineComponent({
       emailReqError: false,
       passwordError: false,
       passwordReqError: false,
+      isLoading: false,
     };
   },
 
@@ -241,6 +244,7 @@ export default defineComponent({
 
     async signIn() {
       if (!this.checkForErrors()) {
+        this.isLoading = true;
         const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
         this.getUserLogin();
         await sleep(1000);
@@ -259,15 +263,18 @@ export default defineComponent({
               console.log("login");
               console.log(auth.currentUser);
               this.$router.push("/investment_plans");
+              this.isLoading = false;
             })
             .catch((error) => {
               console.log(error.code);
               alert(error.message);
+              this.isLoading = false;
             });
         } else {
           this.emailReqError = true;
           this.passwordReqError = true;
           this.users = [];
+          this.isLoading = false;
         }
       }
       /*const auth = getAuth();

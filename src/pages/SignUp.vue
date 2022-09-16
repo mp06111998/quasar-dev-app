@@ -113,10 +113,12 @@
         @click="signUp()"
         rounded
         text-color="black"
+        v-if="!isLoading"
       >
         Sign up
         <!--href="/#/investment_plans"-->
       </q-btn>
+      <q-spinner color="white" size="3em" v-if="isLoading" class="q-ml-md" />
     </div>
     <br />
     <br />
@@ -243,6 +245,7 @@ export default defineComponent({
       passwordError: false,
       passwordReqError: false,
       left2Error: false,
+      isLoading: false,
     };
   },
 
@@ -364,6 +367,7 @@ export default defineComponent({
           password: this.password,
         };
 
+        this.isLoading = true;
         // check if email exists (fill table users with match email)
         const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
         this.getUserByEmail();
@@ -379,10 +383,12 @@ export default defineComponent({
             .then((data) => {
               console.log("sucessssssss");
               this.$router.push("/sign_in");
+              this.isLoading = false;
             })
             .catch((error) => {
               console.log(error.code);
               alert(error.message);
+              this.isLoading = false;
             });
 
           this.$q.notify({
@@ -392,6 +398,7 @@ export default defineComponent({
         } else {
           this.emailUsedError = true;
           this.users = [];
+          this.isLoading = false;
         }
       }
       /*createUserWithEmailAndPassword(getAuth(), this.email, this.password)
