@@ -45,9 +45,9 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 60 days. With small gain
-          investment you get
-          <span style="color: green"><b>profit of 20% after 60 days</b></span
+          All investment plans lock your investment for 100 days. With small
+          gain investment you get
+          <span style="color: green"><b>profit of 20% after 100 days</b></span
           >. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
@@ -104,9 +104,9 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 60 days. With medium
+          All investment plans lock your investment for 100 days. With medium
           gain investment you get
-          <span style="color: green"><b>profit of 40% after 60 days</b></span
+          <span style="color: green"><b>profit of 40% after 100 days</b></span
           >. Everything else is on Juicy Gain.
         </div>
       </q-card-section>
@@ -163,9 +163,9 @@
           >
         </div>
         <div class="text-caption text-grey">
-          All investment plans lock your investment for 60 days. With large gain
-          investment you get
-          <span style="color: green"><b>profit of 60% after 60 days</b></span
+          All investment plans lock your investment for 100 days. With large
+          gain investment you get
+          <span style="color: green"><b>profit of 60% after 100 days</b></span
           >. Everything else is on Juicy Gain.
         </div>
       </q-card-section>

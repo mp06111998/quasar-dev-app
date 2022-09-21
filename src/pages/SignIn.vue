@@ -249,10 +249,6 @@ export default defineComponent({
         this.getUserLogin();
         await sleep(1000);
 
-        console.log("asdas");
-        console.log(this.users);
-        console.log("asdas");
-
         if (!this.users.length == 0) {
           this.users = [];
 
@@ -260,13 +256,10 @@ export default defineComponent({
           const auth = getAuth();
           signInWithEmailAndPassword(getAuth(), this.email, this.password)
             .then((data) => {
-              console.log("login");
-              console.log(auth.currentUser);
               this.$router.push("/investment_plans");
               this.isLoading = false;
             })
             .catch((error) => {
-              console.log(error.code);
               alert(error.message);
               this.isLoading = false;
             });

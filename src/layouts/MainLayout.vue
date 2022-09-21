@@ -18,6 +18,7 @@
 
         <q-toolbar-title>
           <img
+            v-if="!$q.screen.lt.md"
             alt="Juicy gain logo"
             src="~assets/logo.png"
             style="width: 180px; margin-top: 10px"
@@ -30,7 +31,7 @@
           round
           icon="account_circle"
           aria-label="Menu"
-          label="marcel"
+          :label="!$q.screen.lt.md ? getName : null"
           @click="toggleAccount"
         >
           <q-list>
@@ -62,6 +63,13 @@
       bordered
       style="background-color: #000000"
     >
+      <img
+        v-if="$q.screen.lt.md"
+        alt="Juicy gain logo"
+        src="~assets/logo.png"
+        style="width: 180px; margin-top: 10px; margin-left: 20px"
+      />
+
       <q-list>
         <EssentialLink
           style="color: white"
@@ -132,19 +140,17 @@ export default defineComponent({
       },
 
       toggleAccount() {},
+
+      getName: getAuth().currentUser.email,
     };
   },
 
   methods: {
     onLogOut() {
       const auth = getAuth();
-      console.log(auth.currentUser);
       signOut(auth).then(() => {
-        console.log("33333");
-        console.log(auth.currentUser);
         this.$router.push("/");
       });
-      console.log("Logged out!");
     },
 
     /*getCurrentUser() {

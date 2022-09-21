@@ -381,12 +381,10 @@ export default defineComponent({
           /*this.$router.push("/sign_in");*/
           createUserWithEmailAndPassword(getAuth(), this.email, this.password)
             .then((data) => {
-              console.log("sucessssssss");
               this.$router.push("/sign_in");
               this.isLoading = false;
             })
             .catch((error) => {
-              console.log(error.code);
               alert(error.message);
               this.isLoading = false;
             });

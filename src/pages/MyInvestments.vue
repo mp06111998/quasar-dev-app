@@ -51,12 +51,16 @@
           <div class="col-12 col-sm-1 col-md-0"></div>
           <br />
           <div class="col-12 col-sm-7 col-md-8">
-            <q-linear-progress size="18px" :value="progress1" color="black">
+            <q-linear-progress
+              size="18px"
+              :value="calculateProcentage(item.date)"
+              color="black"
+            >
               <div class="absolute-full flex flex-center">
                 <q-badge
                   color="white"
                   text-color="black"
-                  :label="progressLabel1()"
+                  :label="progressLabel1(item.date)"
                 />
               </div>
             </q-linear-progress>
@@ -65,7 +69,7 @@
               <!-- v-if="item.status == 'live'" -->
               Investment payed on
               {{ calculateToDate(item.date) }}. And will be withdrawable on
-              30.10.2022.
+              {{ calculateEndDate(item.date) }}.
             </div>
             <div class="text-caption text-grey" v-if="item.status == 'unpaid'">
               <!-- v-if="item.status == 'live'" -->
@@ -82,7 +86,7 @@
         </q-card-section>
         <q-separator />
         <q-card-actions align="right">
-          <div class="q-gutter-md" style="margin-right: 5px; font-size: 1.5em">
+          <!--<div class="q-gutter-md" style="margin-right: 5px; font-size: 1.5em">
             <q-icon name="info" />
             <q-tooltip
               anchor="top middle"
@@ -90,14 +94,15 @@
               style="max-width: 150px"
             >
               After you pay your investment plan and we sucessfully confirm it,
-              your investment will go live. After 60 days button "withdraw" will
-              enable and you will be able to withdraw your gains.
+              your investment will go live. After 100 days button "withdraw"
+              will enable and you will be able to withdraw your gains.
             </q-tooltip>
-          </div>
+          </div>-->
           <q-btn
             flat
             color="primary"
             :disabled="item.status != 'unpaid'"
+            v-if="item.status == 'unpaid'"
             @click="cancel(item)"
           >
             Cancel
@@ -105,6 +110,7 @@
           <q-btn
             color="primary"
             :disabled="item.status != 'unpaid'"
+            v-if="item.status == 'unpaid'"
             @click="pay(item.invested)"
           >
             Pay
@@ -112,6 +118,7 @@
           <q-btn
             color="primary"
             :disabled="item.status != 'withdrawable'"
+            v-if="item.status != 'unpaid'"
             @click="withdraw()"
           >
             Withdraw
@@ -233,13 +240,13 @@ import { getAuth } from "@firebase/auth";
 import { doc, deleteDoc } from "firebase/firestore";
 import { copyToClipboard } from "quasar";
 import { Timestamp } from "firebase/firestore";
+import moment from "moment";
 
 export default defineComponent({
   name: "My Investments",
 
   data() {
     return {
-      progress1: 0.42,
       openPay: false,
       openCancel: false,
       cancelItem: null,
@@ -251,11 +258,34 @@ export default defineComponent({
   },
 
   methods: {
-    progressLabel1() {
-      return this.progress1 * 100 + "%";
+    progressLabel1(date) {
+      return Math.round(this.calculateProcentage(date) * 100) + "%";
+    },
+    calculateProcentage(date) {
+      if (date == undefined || date == null) {
+        return 0;
+      }
+
+      let start = moment(date.toDate());
+      let end = moment(new Date());
+
+      let duration = moment.duration(end.diff(start));
+      let days = duration.asDays();
+
+      return Math.floor(days) / 100;
     },
     calculateToDate(date) {
-      return date.toDate();
+      /*return date.toDate();*/
+      return moment(String(date.toDate())).format("DD.MM.YYYY");
+    },
+    calculateEndDate(date) {
+      /*return date.toDate();*/
+
+      /* new Date() */
+
+      return moment(moment(date.toDate()).add(100, "days").toDate()).format(
+        "DD.MM.YYYY"
+      );
     },
     cancel(item) {
       this.cancelItem = item;
@@ -271,6 +301,10 @@ export default defineComponent({
         });*/
     },
     async cancelConfirm() {
+      this.$q.notify({
+        type: "warning",
+        message: "Investment plan successfully canceled.",
+      });
       await deleteDoc(doc(db, "investments", this.cancelItem.id));
     },
     onCryptoId() {
