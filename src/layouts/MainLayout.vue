@@ -23,6 +23,12 @@
             src="~assets/logo.png"
             style="width: 180px; margin-top: 10px"
           />
+          <img
+            v-if="$q.screen.lt.md"
+            alt="Juicy gain logo"
+            src="~assets/logo2.png"
+            style="width: 60px; margin-top: 10px; margin-left: -15px"
+          />
         </q-toolbar-title>
 
         <q-btn-dropdown
