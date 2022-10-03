@@ -21,9 +21,9 @@
       <h4><b>Privacy Policy</b></h4>
       <div>
         This Privacy Policy is designed to assist you with understanding how
-        www.juicygain.com (juicygain.com” "we", "us" or "our") collect, use and
-        disclose the information you provide us when accessing or using the
-        website, www.juicygain.com.
+        www.knightgain.com (knightgain.com” "we", "us" or "our") collect, use
+        and disclose the information you provide us when accessing or using the
+        website, www.knightgain.com.
       </div>
 
       <h4><b>Changes to our Privacy Policy</b></h4>
@@ -118,7 +118,7 @@
         recruitment; monitoring and analyzing trends, usage and activities in
         connection with our Website; detecting, investigating and preventing
         fraudulent transactions or unauthorized or illegal activities;
-        protecting the rights and property of the juicygain.com Parties (as
+        protecting the rights and property of the knightgain.com Parties (as
         defined below) and others; linking, connecting or combining Information
         we collect from or about you with other Information; and carrying out
         any other purpose or reason for which the Information was collected.
@@ -140,7 +140,7 @@
         information if we believe disclosure is in accordance with, or required
         by, any applicable law, regulation or legal process; if we believe your
         actions are inconsistent with our user agreements or policies, or to
-        protect the rights, property and safety of any juicygain.com Party or
+        protect the rights, property and safety of any knightgain.com Party or
         others; and with third parties where aggregate Information is disclosed
         which cannot be reasonably be used to identify you.
       </div>
@@ -172,7 +172,7 @@
         contractors, consultants, equity holders, suppliers, vendors, service
         providers, parent companies, subsidiaries, affiliates, agents,
         representatives, predecessors, successors and assigns (collectively, the
-        juicygain.com Parties”) liable for any loss or damage of any sort
+        knightgain.com Parties”) liable for any loss or damage of any sort
         incurred as a result of any misappropriation, interception,
         modification, deletion, destruction or use of information provided
         through our Website.<br /><br />

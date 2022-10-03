@@ -19,13 +19,13 @@
         <q-toolbar-title>
           <img
             v-if="!$q.screen.lt.md"
-            alt="Juicy gain logo"
-            src="~assets/logo.png"
+            alt="Knight gain logo"
+            src="~assets/logoNew.png"
             style="width: 180px; margin-top: 10px"
           />
           <img
             v-if="$q.screen.lt.md"
-            alt="Juicy gain logo"
+            alt="Knight gain logo"
             src="~assets/logo2.png"
             style="width: 60px; margin-top: 10px; margin-left: -15px"
           />
@@ -71,8 +71,8 @@
     >
       <img
         v-if="$q.screen.lt.md"
-        alt="Juicy gain logo"
-        src="~assets/logo.png"
+        alt="Knight gain logo"
+        src="~assets/logoNew.png"
         style="width: 180px; margin-top: 10px; margin-left: 20px"
       />
 
@@ -106,11 +106,11 @@ const linksList = [
     icon: "account_balance",
     to: "/my_investments",
   },
-  {
+  /*{
     title: "Calendar",
     icon: "calendar_month",
     to: "/calendar",
-  },
+  },*/
   {
     title: "Greenpaper",
     icon: "description",

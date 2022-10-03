@@ -48,7 +48,7 @@
           All investment plans lock your investment for 100 days. With small
           gain investment you get
           <span style="color: green"><b>profit of 20% after 100 days</b></span
-          >. Everything else is on Juicy Gain.
+          >. Everything else is on Knight Gain.
         </div>
       </q-card-section>
 
@@ -107,7 +107,7 @@
           All investment plans lock your investment for 100 days. With medium
           gain investment you get
           <span style="color: green"><b>profit of 40% after 100 days</b></span
-          >. Everything else is on Juicy Gain.
+          >. Everything else is on Knight Gain.
         </div>
       </q-card-section>
 
@@ -166,7 +166,7 @@
           All investment plans lock your investment for 100 days. With large
           gain investment you get
           <span style="color: green"><b>profit of 60% after 100 days</b></span
-          >. Everything else is on Juicy Gain.
+          >. Everything else is on Knight Gain.
         </div>
       </q-card-section>
 

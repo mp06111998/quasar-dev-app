@@ -5,8 +5,8 @@
         <q-toolbar-title>
           <a href="/#/">
             <img
-              alt="Juicy gain logo"
-              src="~assets/logo.png"
+              alt="Knight gain logo"
+              src="~assets/logoNew.png"
               style="width: 180px; margin-top: 10px"
             />
           </a>

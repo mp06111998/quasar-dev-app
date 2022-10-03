@@ -13,7 +13,7 @@
         text-color="black"
         unelevated
         to="/"
-        label="Go Home To Juicy Gain"
+        label="Go Home To Knight Gain"
         no-caps
       />
     </div>

@@ -85,14 +85,14 @@
 
         <h4><b>Impressum</b></h4>
 
-        <div style="font-size: 22px"><b>Juicy Gain Platform</b></div>
+        <div style="font-size: 22px"><b>Knight Gain Platform</b></div>
         <br />
         <div style="font-size: 10px; color: grey">Legal address:</div>
         <div style="font-size: 18px">20 Water St, London E14 5GX</div>
         <div style="font-size: 18px">London, United Kingdom</div>
         <br />
         <div style="font-size: 10px; color: grey">E-mail:</div>
-        <div style="font-size: 18px">support_juicygain@gmail.com</div>
+        <div style="font-size: 18px">support_knightgain@gmail.com</div>
         <br />
         <div style="font-size: 10px; color: grey">Registered office:</div>
         <div style="font-size: 18px">London, United Kingdom</div>

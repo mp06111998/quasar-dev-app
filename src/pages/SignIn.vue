@@ -66,21 +66,97 @@
       </q-btn>
       <q-spinner color="white" size="3em" v-if="isLoading" class="q-ml-md" />
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="row">
+
+    <div class="row fixed-bottom q-ma-lg" v-if="!$q.screen.lt.md">
+      <div class="col-1 col-md-4 myFont" style="text-align: left; color: white">
+        <!--<a style="color: white; font-size: 30px"
+          ><i style="width: 40px" class="las la-map-marker-alt"></i
+        ></a>
+        Ljubljana, Slovenia
+        <br />
+        <a style="color: white; font-size: 30px"
+          ><i style="width: 40px" class="las la-envelope"></i
+        ></a>
+        juicygain@gmail.com -->
+      </div>
+      <div
+        class="col-3 col-md-2 myFont"
+        style="text-align: center; color: white"
+      >
+        <a href="/#/greenpaper" style="color: white; text-decoration: none"
+          >Greenpaper</a
+        >
+        <br />
+        <br />
+        <a
+          href="/#/terms_and_conditions"
+          style="color: white; text-decoration: none"
+          >Terms and Conditions</a
+        >
+      </div>
+      <div class="col-5 col-md-2 myFont" style="text-align: center">
+        <a href="/#/impressum" style="color: white; text-decoration: none"
+          >Impressum</a
+        >
+        <br />
+        <br />
+        <a href="/#/privacy_policy" style="color: white; text-decoration: none"
+          >Privacy Policy</a
+        >
+      </div>
+      <div
+        class="col-1 col-md-4 myFont"
+        style="text-align: right; color: white"
+      >
+        <!-- <q-btn
+          fab
+          color="primary"
+          class="lab la-youtube"
+          style="font-size: 30px"
+        /> -->
+        <!--<a
+          href="http://juicytelegram.com/"
+          target="_blank"
+          style="color: white; text-decoration: none"
+          ><span v-if="!$q.screen.lt.md">Telegram</span
+          ><i style="width: 40px; font-size: 30px" class="lab la-telegram"></i
+        ></a>
+        <br />-->
+        <a
+          href="https://www.instagram.com/knightgain/"
+          target="_blank"
+          style="color: white; text-decoration: none"
+          ><span v-if="!$q.screen.lt.md">Instagram</span
+          ><i style="width: 40px; font-size: 30px" class="lab la-instagram"></i
+        ></a>
+        <br />
+        <a
+          href="https://www.youtube.com/channel/UCse9wDIa_u6Yh3IdVHp5wOQ"
+          target="_blank"
+          style="color: white; text-decoration: none"
+          ><span v-if="!$q.screen.lt.md">Youtube</span
+          ><i style="width: 40px; font-size: 30px" class="lab la-youtube"></i
+        ></a>
+      </div>
+    </div>
+
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+    <br v-if="$q.screen.lt.md" />
+
+    <div class="row" v-if="$q.screen.lt.md">
       <div class="col-1 col-md-4 myFont" style="text-align: left; color: white">
         <!--<a style="color: white; font-size: 30px"
           ><i style="width: 40px" class="las la-map-marker-alt"></i

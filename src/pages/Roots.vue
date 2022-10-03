@@ -21,10 +21,10 @@
       <h4><b>Our Roots</b></h4>
 
       <div style="font-size: 22px">
-        <b>Juicy Gains managing directors message</b>
+        <b>Knight Gains managing directors message</b>
       </div>
       <div>
-        "I don't do sport bets - I'm sport bets" Juicy Gain Platform is project
+        "I don't do sport bets - I'm sport bets" Knight Gain Platform is project
         of my dream to crack the powerful betting game and make all the benefits
         of sport betting available to everyone.<br /><br />
       </div>

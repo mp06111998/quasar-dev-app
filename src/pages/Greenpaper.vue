@@ -1013,14 +1013,14 @@
         <br /><br />
         And now imagine you're doing this so many times a day with sums way
         higher than in the example. Right, you can earn a pretty penny! That's
-        how Juicy Gain Platform works.
+        how Knight Gain Platform works.
         <br /><br />
       </div>
       <div style="font-size: 22px">
-        <b>Juicy Gain's Role</b>
+        <b>Knight Gain's Role</b>
       </div>
       <div>
-        Juicy Gain Platform is designed to place those surebets for you in
+        Knight Gain Platform is designed to place those surebets for you in
         background, it works as middleman between bookmakers and investor. You
         don't even see any sport bets on platform. On platform you just choose
         investment plan and wait for it to complete.<br /><br />
