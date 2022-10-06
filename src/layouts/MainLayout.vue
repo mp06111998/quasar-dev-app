@@ -41,11 +41,11 @@
           @click="toggleAccount"
         >
           <q-list>
-            <q-item clickable v-close-popup>
+            <!--<q-item clickable v-close-popup>
               <q-item-section>
                 <q-item-label>Profile</q-item-label>
               </q-item-section>
-            </q-item>
+            </q-item>-->
 
             <q-item clickable v-close-popup>
               <q-item-section>

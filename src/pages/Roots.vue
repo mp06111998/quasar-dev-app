@@ -225,14 +225,7 @@
             <div class="col-6"></div>
             <div class="col-6"><i>Operating officer</i></div>
             <div class="col-6"></div>
-            <q-btn
-              round
-              href=""
-              color="primary"
-              icon="lab la-linkedin"
-              size="md"
-              class="q-my-md"
-            />
+            <br /><br /><br /><br />
           </div>
           <div>
             The way a team plays as a whole determines its success. You may have
