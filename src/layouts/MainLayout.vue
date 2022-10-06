@@ -47,9 +47,9 @@
               </q-item-section>
             </q-item>-->
 
-            <q-item clickable v-close-popup>
+            <q-item clickable v-close-popup @click="openSettings()">
               <q-item-section>
-                <q-item-label>Settings</q-item-label>
+                <q-item-label>My Account</q-item-label>
               </q-item-section>
             </q-item>
             <q-separator />
@@ -90,6 +90,77 @@
       <router-view />
     </q-page-container>
   </q-layout>
+
+  <q-dialog
+    v-model="settings"
+    transition-show="rotate"
+    transition-hide="rotate"
+    persistent
+  >
+    <q-card style="max-width: 410px">
+      <q-card-section class="bg-black text-white">
+        <div class="text-h6">My Account</div>
+      </q-card-section>
+
+      <q-card-section class="q-py-lg">
+        <!--<p>
+          Only current payment on platform is with crypto Tether (USDT).
+          Investment of
+          <span class="q-px-sm" style="background-color: black; color: white"
+            >€ {{ this.currentInvestedAmount }}</span
+          >. Note that you need to pay Gas Fee too.
+        </p>-->
+        <q-input
+          v-model="this.user.firstName"
+          rounded
+          standout
+          dense
+          readonly
+          type="text"
+          bg-color="lightgrey"
+          label-color="black"
+          input-style="color: black"
+          label="First Name"
+          hide-bottom-space
+          style="width: 300px; margin: 0 auto"
+        />
+        <br />
+        <q-input
+          v-model="this.user.lastName"
+          rounded
+          standout
+          dense
+          readonly
+          type="text"
+          bg-color="lightgrey"
+          label-color="black"
+          input-style="color: black"
+          label="Last Name"
+          hide-bottom-space
+          style="width: 300px; margin: 0 auto"
+        />
+        <br />
+        <q-input
+          v-model="this.user.email"
+          rounded
+          standout
+          dense
+          readonly
+          type="text"
+          bg-color="lightgrey"
+          label-color="black"
+          input-style="color: black"
+          label="Email"
+          hide-bottom-space
+          style="width: 300px; margin: 0 auto"
+        />
+      </q-card-section>
+      <q-separator />
+      <q-card-actions align="right">
+        <q-btn label="Ok" color="primary" v-close-popup />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
@@ -123,6 +194,16 @@ const linksList = [
   },
 ];
 
+import db from "src/boot/firebase";
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  setDoc,
+  addDoc,
+} from "firebase/firestore";
 import { defineComponent, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "@firebase/auth";
 import { reject } from "q";
@@ -130,6 +211,14 @@ import { removeListener } from "process";
 
 export default defineComponent({
   name: "MainLayout",
+
+  data() {
+    return {
+      settings: false,
+      users: [],
+      user: null,
+    };
+  },
 
   components: {
     EssentialLink,
@@ -156,6 +245,39 @@ export default defineComponent({
       const auth = getAuth();
       signOut(auth).then(() => {
         this.$router.push("/");
+      });
+    },
+
+    async openSettings() {
+      const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+      this.getUserByEmail();
+      await sleep(1000);
+
+      this.settings = true;
+      this.user = this.users[0];
+    },
+
+    getUserByEmail() {
+      const q = query(
+        collection(db, "users"),
+        where("email", "==", getAuth().currentUser.email)
+      );
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          let usersChange = change.doc.data();
+          if (change.type === "added") {
+            //console.log("New user: ", usersChange);
+            //console.log(usersChange);
+            this.users.unshift(usersChange);
+            //console.log(this.users.length);
+          }
+          if (change.type === "modified") {
+            //console.log("Modified user: ", usersChange);
+          }
+          if (change.type === "removed") {
+            //console.log("Removed user: ", usersChange);
+          }
+        });
       });
     },
 

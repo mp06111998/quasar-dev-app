@@ -53,6 +53,7 @@
           <div class="col-12 col-sm-7 col-md-8">
             <q-linear-progress
               size="18px"
+              stripe
               :value="calculateProcentage(item.date)"
               color="black"
             >
