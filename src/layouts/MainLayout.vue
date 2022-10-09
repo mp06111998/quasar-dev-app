@@ -194,6 +194,7 @@ const linksList = [
   },
 ];
 
+import { Quasar, Loading } from "quasar";
 import db from "src/boot/firebase";
 import {
   collection,
@@ -249,9 +250,13 @@ export default defineComponent({
     },
 
     async openSettings() {
+      Loading.show();
+
       const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
       this.getUserByEmail();
       await sleep(1000);
+
+      Loading.hide();
 
       this.settings = true;
       this.user = this.users[0];

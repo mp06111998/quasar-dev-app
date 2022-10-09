@@ -65,14 +65,14 @@
   <q-page class="flex flex-center" style="background-color: lightgrey">
     <q-card class="my-card q-my-md" style="padding: 0px 30px 30px 30px">
       <q-card-section>
-        <q-btn
+        <!--<q-btn
           fab
           href="https://www.linkedin.com/"
           color="primary"
           icon="lab la-linkedin"
           class="absolute"
           style="top: 80px; right: -50px; transform: translateY(-50%)"
-        />
+        />-->
 
         <q-btn
           fab
