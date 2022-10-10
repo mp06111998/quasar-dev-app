@@ -6,8 +6,18 @@
     rel="stylesheet"
   />
   <q-page style="background-color: lightgrey">
-    <div v-if="this.investments.length == 0" class="q-pa-md">
-      No investments yet
+    <div
+      v-if="this.investments.length == 0"
+      class="q-pa-md"
+      style="text-align: center; padding-top: 60px"
+    >
+      <div class="text-caption">
+        No investment yet. Go
+        <span style="color: green"><b>under "Investment plans"</b></span> in
+        menu.<br />There
+        <span style="color: green"><b>you can choose investment plans</b></span
+        >.
+      </div>
     </div>
     <!--<div style="background-color: white" class="bg-image">
       <div class="justify-center full-height full-width text-center myFont">

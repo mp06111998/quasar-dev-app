@@ -100,13 +100,13 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ mediumValue * 1.4 }}</span
+            >€ {{ mediumValue * 1.3 }}</span
           >
         </div>
         <div class="text-caption text-grey">
           All investment plans lock your investment for 100 days. With medium
           gain investment you get
-          <span style="color: green"><b>profit of 40% after 100 days</b></span
+          <span style="color: green"><b>profit of 30% after 100 days</b></span
           >. Everything else is on Knight Gain.
         </div>
       </q-card-section>
@@ -114,7 +114,7 @@
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary" @click="click(mediumValue, 1.4)"> Invest </q-btn>
+        <q-btn color="primary" @click="click(mediumValue, 1.3)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
 
@@ -159,13 +159,13 @@
         <div class="text-subtitle1">
           Gain projections:
           <span class="q-px-sm" style="background-color: black; color: white"
-            >€ {{ largeValue * 1.6 }}</span
+            >€ {{ largeValue * 1.5 }}</span
           >
         </div>
         <div class="text-caption text-grey">
           All investment plans lock your investment for 100 days. With large
           gain investment you get
-          <span style="color: green"><b>profit of 60% after 100 days</b></span
+          <span style="color: green"><b>profit of 50% after 100 days</b></span
           >. Everything else is on Knight Gain.
         </div>
       </q-card-section>
@@ -173,7 +173,7 @@
       <q-separator />
 
       <q-card-actions align="center">
-        <q-btn color="primary" @click="click(largeValue, 1.6)"> Invest </q-btn>
+        <q-btn color="primary" @click="click(largeValue, 1.5)"> Invest </q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
