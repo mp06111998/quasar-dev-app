@@ -29,7 +29,7 @@
       <div style="font-size: 18px">London, United Kingdom</div>
       <br />
       <div style="font-size: 10px; color: grey">E-mail:</div>
-      <div style="font-size: 18px">support_juicygain@gmail.com</div>
+      <div style="font-size: 18px">info.knightgain@gmail.com</div>
       <br />
       <div style="font-size: 10px; color: grey">Social media:</div>
       <div style="font-size: 18px">
@@ -92,7 +92,7 @@
         <div style="font-size: 18px">London, United Kingdom</div>
         <br />
         <div style="font-size: 10px; color: grey">E-mail:</div>
-        <div style="font-size: 18px">support_knightgain@gmail.com</div>
+        <div style="font-size: 18px">info.knightgain@gmail.com</div>
         <br />
         <div style="font-size: 10px; color: grey">Registered office:</div>
         <div style="font-size: 18px">London, United Kingdom</div>
@@ -120,7 +120,7 @@
       <div style="font-size: 18px">London, United Kingdom</div>
       <br />
       <div style="font-size: 10px; color: grey">E-mail:</div>
-      <div style="font-size: 18px">support_juicygain@gmail.com</div>
+      <div style="font-size: 18px">info.knightgain@gmail.com</div>
       <br />
       <div style="font-size: 10px; color: grey">Registered office:</div>
       <div style="font-size: 18px">London, United Kingdom</div>
