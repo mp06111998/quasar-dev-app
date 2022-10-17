@@ -85,7 +85,7 @@
 
         <h4><b>Support</b></h4>
 
-        <div style="font-size: 22px; color: grey"><b>E-mail:</b></div>
+        <!--<div style="font-size: 22px; color: grey"><b>E-mail:</b></div>-->
         <div style="font-size: 22px"><b>info.knightgain@gmail.com</b></div>
         <br />
         <!--<div style="font-size: 22px"><b>Knight Gain Platform</b></div>
