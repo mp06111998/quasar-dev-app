@@ -27,7 +27,7 @@
       hide-bottom-space
       :error="firstNameError"
       error-message="This is a required field!"
-      @click="onFirstNameInput()"
+      @focus="onFirstNameInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -44,7 +44,7 @@
       hide-bottom-space
       :error="lastNameError"
       error-message="This is a required field!"
-      @click="onLastNameInput()"
+      @focus="onLastNameInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -67,7 +67,7 @@
           ? 'This email has already been taken!'
           : 'Invalid email address!'
       "
-      @click="onEmailInput()"
+      @focus="onEmailInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -89,7 +89,7 @@
           ? 'This is a required field!'
           : 'The password must contain at least six characters!'
       "
-      @click="onPasswordInput()"
+      @focus="onPasswordInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />

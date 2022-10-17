@@ -27,7 +27,7 @@
       hide-bottom-space
       :error="emailError || emailReqError"
       :error-message="emailError ? 'This is a required field!' : null"
-      @click="onEmailInput()"
+      @focus="onEmailInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -49,7 +49,7 @@
           ? 'This is a required field!'
           : 'Incorrect email address or password!'
       "
-      @click="onPasswordInput()"
+      @focus="onPasswordInput()"
       style="width: 300px; margin: 0 auto"
     />
     <br />
@@ -202,10 +202,12 @@ export default defineComponent({
     },
 
     onEmailInput() {
+      this.passwordReqError = false;
       this.emailError = false;
       this.emailReqError = false;
     },
     onPasswordInput() {
+      this.emailReqError = false;
       this.passwordError = false;
       this.passwordReqError = false;
     },
