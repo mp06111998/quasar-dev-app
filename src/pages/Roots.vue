@@ -58,14 +58,15 @@
             <div class="col-6"></div>
             <div class="col-6"><i>Managing director</i></div>
             <div class="col-6"></div>
-            <q-btn
+            <br /><br /><br /><br />
+            <!--<q-btn
               round
               href="https://www.linkedin.com/in/andrei-harrison-736275249/"
               color="primary"
               icon="lab la-linkedin"
               size="md"
               class="q-my-md"
-            />
+            />-->
           </div>
           <div>
             Finance is not merely about making money. It's about achieving our
@@ -102,14 +103,15 @@
             <div class="col-6"></div>
             <div class="col-6"><i>Executive director</i></div>
             <div class="col-6"></div>
-            <q-btn
+            <br /><br /><br /><br />
+            <!--<q-btn
               round
               href="https://www.linkedin.com/in/marcos-santos-022613249/"
               color="primary"
               icon="lab la-linkedin"
               size="md"
               class="q-my-md"
-            />
+            />-->
           </div>
           <div>
             The secret of my success is that I make other people money. And,
